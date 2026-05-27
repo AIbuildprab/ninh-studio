@@ -60,3 +60,21 @@ id = "Yt8mTYM6AVpWqSWL4J6Q1"
 uri = "file://artifacts/ninh-studio/public/images/gallery-6.png"
 type = "image"
 title = "Gallery headshot 2"
+
+[[generated]]
+id = "UqXXEe55D93kC5SZYK_BB"
+uri = "file://artifacts/ninh-studio/public/images/gallery-7.png"
+type = "image"
+title = "baby photography studio portrait"
+
+[[generated]]
+id = "1hDEhf81u1J3mjKeLxw6W"
+uri = "file://artifacts/ninh-studio/public/images/gallery-8.png"
+type = "image"
+title = "boudoir editorial studio portrait"
+
+[[generated]]
+id = "LXDBs-gopEiPyqrSd1S5W"
+uri = "file://artifacts/ninh-studio/public/images/gallery-9.png"
+type = "image"
+title = "corporate professional headshot studio"

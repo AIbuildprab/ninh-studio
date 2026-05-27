@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { MapPin, Phone, Mail, Instagram, Clock } from "lucide-react";
+import { MapPin, Mail, Instagram, Clock } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Button } from "@/components/ui/button";
 import {
@@ -84,10 +84,12 @@ export function ContactSection() {
                 </div>
                 
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-accent shrink-0 mt-1" />
+                  <Instagram className="w-5 h-5 text-accent shrink-0 mt-1" />
                   <div className="text-sm">
-                    <p className="font-bold text-foreground">Phone</p>
-                    <p className="text-secondary-foreground mt-1">(778) 555-0198</p>
+                    <p className="font-bold text-foreground">Instagram</p>
+                    <a href="https://www.instagram.com/ninhstudio/" target="_blank" rel="noreferrer" className="text-accent hover:underline mt-1 block">
+                      @ninhstudio
+                    </a>
                   </div>
                 </div>
 

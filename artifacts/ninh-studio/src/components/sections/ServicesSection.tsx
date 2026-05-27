@@ -1,81 +1,111 @@
 import React from "react";
-import { Camera, Users, Video, Smile, Store, Sparkles } from "lucide-react";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 
 const services = [
   {
-    icon: <Users className="w-6 h-6 text-accent" />,
-    title: "Headshots & LinkedIn",
-    desc: "Look the part. Whether it's LinkedIn, a speaking bio, or a new business card, we'll get you a photo you're actually proud to use.",
+    title: "Headshots & Portraits",
+    desc: "Look the part. LinkedIn profiles, speaking bios, or business cards — we'll get you a photo you're proud to use.",
+    image: "/images/gallery-6.png",
+    tag: "Most Popular",
   },
   {
-    icon: <Camera className="w-6 h-6 text-accent" />,
-    title: "Self-Portraits",
-    desc: "Book the studio solo, bring a friend, or work with our photographer. Your session, your vision, we just make the space and light perfect.",
+    title: "Baby Photography",
+    desc: "Soft, timeless newborn and milestone portraits. Safe, warm, and unhurried — we work at your baby's pace.",
+    image: "/images/gallery-7.png",
   },
   {
-    icon: <Video className="w-6 h-6 text-accent" />,
-    title: "Weddings & Events",
-    desc: "On-site coverage for weddings, engagements, and milestone events. We travel to you and capture every moment that matters.",
+    title: "Boudoir Photography",
+    desc: "Empowering, artistic, and completely private. A beautiful gift to yourself or someone special.",
+    image: "/images/gallery-8.png",
   },
   {
-    icon: <Smile className="w-6 h-6 text-accent" />,
-    title: "Portraits & Families",
-    desc: "Maternity, birthdays, couple sessions, family milestones. Real moments, beautifully lit, beautifully kept.",
+    title: "Commercial Photography",
+    desc: "Products, brands, and business content. Clean, high-quality images ready for web, print, or social.",
+    image: "/images/gallery-9.png",
   },
   {
-    icon: <Store className="w-6 h-6 text-accent" />,
-    title: "Studio Rental",
-    desc: "Book the space for your own shoot. 597 sq ft, 2 lights, customizable backdrops, makeup station, from $60/hr.",
+    title: "Corporate Photography",
+    desc: "Team photos, executive portraits, and office event coverage. Polished images that reflect your brand.",
+    image: "/images/gallery-1.png",
   },
   {
-    icon: <Sparkles className="w-6 h-6 text-accent" />,
-    title: "Makeup Touch-Ups",
-    desc: "Light makeup and touch-up services available to make sure you feel as good as you look before the camera rolls.",
+    title: "Events & Parties",
+    desc: "Weddings, engagements, birthdays, and more. We travel to you and capture every moment that matters.",
+    image: "/images/gallery-2.png",
   },
 ];
 
 export function ServicesSection() {
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 });
 
+  const scrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section id="sessions" className="py-[60px] md:py-[100px] bg-secondary w-full" ref={ref}>
+    <section id="sessions" className="py-[60px] md:py-[100px] bg-[#0E0E0E] w-full" ref={ref}>
       <div className="max-w-[1180px] mx-auto px-6">
+
         <div
-          className={`text-center max-w-2xl mx-auto mb-16 transition-all duration-700 ease-out ${
+          className={`text-center max-w-2xl mx-auto mb-14 transition-all duration-700 ease-out ${
             isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="text-accent uppercase tracking-widest text-xs font-medium mb-4 block">
+          <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">
             What We Do
           </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-foreground mb-4">
+          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-white mb-4">
             Every Kind of Photo. One Studio.
           </h2>
-          <p className="text-secondary-foreground text-lg">
-            From LinkedIn updates to wedding days, we've got you covered.
+          <p className="text-white/50 text-lg">
+            From your first headshot to your wedding day — we've got you covered.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
-            <div
+            <button
               key={i}
-              className={`bg-card p-8 rounded-xl border border-border shadow-[0_2px_12px_rgba(0,0,0,0.02)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)] ${
+              onClick={scrollToContact}
+              className={`group relative overflow-hidden rounded-xl aspect-[4/5] text-left transition-all duration-700 ease-out focus:outline-none ${
                 isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
-              style={{ transitionDelay: `${isIntersecting ? 100 + i * 100 : 0}ms` }}
+              style={{ transitionDelay: `${isIntersecting ? i * 80 : 0}ms` }}
             >
-              <div className="bg-secondary w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                {service.icon}
+              {/* Background photo */}
+              <img
+                src={service.image}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+
+              {/* Gradient overlay — stronger at bottom */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-opacity duration-300 group-hover:from-black/95 group-hover:via-black/60" />
+
+              {/* Popular badge */}
+              {service.tag && (
+                <div className="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                  {service.tag}
+                </div>
+              )}
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col">
+                <h3 className="font-display font-bold text-xl text-white mb-2 leading-tight">
+                  {service.title}
+                </h3>
+                <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors duration-300">
+                  {service.desc}
+                </p>
+                <div className="mt-4 flex items-center gap-1.5 text-accent text-xs font-semibold uppercase tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  Book this session
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="inline-block">
+                    <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
               </div>
-              <h3 className="font-display font-bold text-xl text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-secondary-foreground leading-relaxed">
-                {service.desc}
-              </p>
-            </div>
+            </button>
           ))}
         </div>
       </div>
