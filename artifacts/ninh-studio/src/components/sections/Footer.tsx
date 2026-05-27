@@ -1,5 +1,14 @@
 import React from "react";
-import { Instagram, MapPin, Mail } from "lucide-react";
+import { Instagram, MapPin, Mail, Phone } from "lucide-react";
+
+const services = [
+  "Headshots & Portraits",
+  "Baby Photography",
+  "Boudoir Photography",
+  "Commercial Photography",
+  "Corporate Photography",
+  "Events & Parties",
+];
 
 export function Footer() {
   const scrollTo = (id: string) => {
@@ -7,58 +16,150 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-[#1A1A1A] text-white/70 pt-20 pb-8">
-      <div className="max-w-[1180px] mx-auto px-6">
+    <footer className="relative overflow-hidden bg-[#080808] text-white">
+
+      {/* Faded studio image background */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/images/studio-full.png')",
+          opacity: 0.07,
+        }}
+      />
+
+      {/* Gradient overlay — keeps edges dark */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#080808]/60 via-transparent to-[#080808]/80" />
+
+      {/* Giant watermark wordmark */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[1] pointer-events-none select-none whitespace-nowrap font-display font-extrabold leading-none text-white"
+        style={{ fontSize: "clamp(80px, 18vw, 220px)", opacity: 0.03, letterSpacing: "-0.02em" }}
+        aria-hidden
+      >
+        NINH STUDIO
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-[1180px] mx-auto px-6 pt-20 pb-8">
+
+        {/* Top section */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
-          
-          {/* Brand Col */}
-          <div className="md:col-span-5 flex flex-col items-start">
-            <span className="font-display font-extrabold text-2xl tracking-tight text-white mb-4">
-              NINH STUDIO
-            </span>
-            <p className="text-white/50 mb-8 max-w-sm">
-              Your Story Deserves to Be Seen. Professional photography and studio space in East Vancouver.
+
+          {/* Brand */}
+          <div className="md:col-span-5">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-1 h-8 bg-accent rounded-full" />
+              <span className="font-display font-extrabold text-2xl tracking-tight text-white">
+                NINH STUDIO
+              </span>
+            </div>
+            <p className="text-white/45 text-sm leading-relaxed mb-8 max-w-xs">
+              A professional photography studio specializing in capturing timeless, high-quality images with a modern, artistic touch.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                <Instagram className="w-5 h-5" />
+
+            {/* Social icons */}
+            <div className="flex gap-3">
+              <a
+                href="https://www.instagram.com/ninhstudio/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:border-accent hover:text-accent transition-all duration-200"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-4 h-4" />
               </a>
-              <a href="https://maps.google.com/?q=5530+Joyce+Street+Vancouver" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                <MapPin className="w-5 h-5" />
+              <a
+                href="https://maps.google.com/?q=5530+Joyce+Street+Vancouver"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:border-accent hover:text-accent transition-all duration-200"
+                aria-label="Google Maps"
+              >
+                <MapPin className="w-4 h-4" />
               </a>
-              <a href="mailto:hello@ninhstudio.ca" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-accent hover:text-white transition-colors">
-                <Mail className="w-5 h-5" />
+              <a
+                href="mailto:hello@ninhstudio.ca"
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:border-accent hover:text-accent transition-all duration-200"
+                aria-label="Email"
+              >
+                <Mail className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Links Col */}
+          {/* Services */}
           <div className="md:col-span-3">
-            <h4 className="text-white font-bold mb-6">Quick Links</h4>
+            <h4 className="text-white/90 text-xs uppercase tracking-[0.15em] font-semibold mb-6">
+              Services
+            </h4>
             <ul className="space-y-3">
-              <li><button onClick={() => scrollTo('contact')} className="hover:text-accent transition-colors text-sm">Book a Session</button></li>
-              <li><button onClick={() => scrollTo('contact')} className="hover:text-accent transition-colors text-sm">Rent the Studio</button></li>
-              <li><button onClick={() => scrollTo('gallery')} className="hover:text-accent transition-colors text-sm">Gallery</button></li>
-              <li><button onClick={() => scrollTo('pricing')} className="hover:text-accent transition-colors text-sm">Pricing</button></li>
-              <li><button onClick={() => scrollTo('contact')} className="hover:text-accent transition-colors text-sm">Contact</button></li>
+              {services.map((s) => (
+                <li key={s}>
+                  <button
+                    onClick={() => scrollTo("services")}
+                    className="text-white/40 hover:text-accent transition-colors text-sm text-left"
+                  >
+                    {s}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Visit Us Col */}
-          <div className="md:col-span-4">
-            <h4 className="text-white font-bold mb-6">Visit Us</h4>
-            <address className="not-italic text-sm space-y-2">
-              <p>5530 Joyce Street</p>
-              <p>Vancouver, BC V5R 4H6</p>
-              <p className="mt-4"><a href="mailto:hello@ninhstudio.ca" className="hover:text-accent transition-colors">hello@ninhstudio.ca</a></p>
-            </address>
-          </div>
+          {/* Visit & Links */}
+          <div className="md:col-span-4 flex flex-col gap-10">
+            <div>
+              <h4 className="text-white/90 text-xs uppercase tracking-[0.15em] font-semibold mb-6">
+                Quick Links
+              </h4>
+              <ul className="space-y-3">
+                {[
+                  { label: "Book a Session", id: "contact" },
+                  { label: "Rent the Studio", id: "studio" },
+                  { label: "Gallery", id: "gallery" },
+                  { label: "Pricing", id: "pricing" },
+                  { label: "Contact", id: "contact" },
+                ].map(({ label, id }) => (
+                  <li key={label}>
+                    <button
+                      onClick={() => scrollTo(id)}
+                      className="text-white/40 hover:text-accent transition-colors text-sm"
+                    >
+                      {label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
+            <div>
+              <h4 className="text-white/90 text-xs uppercase tracking-[0.15em] font-semibold mb-5">
+                Visit Us
+              </h4>
+              <address className="not-italic space-y-2 text-white/40 text-sm">
+                <p>5530 Joyce Street</p>
+                <p>Vancouver, BC V5R 4H6</p>
+                <p className="mt-4 flex items-center gap-2">
+                  <Mail className="w-3.5 h-3.5 text-accent/70 flex-shrink-0" />
+                  <a href="mailto:hello@ninhstudio.ca" className="hover:text-accent transition-colors">
+                    hello@ninhstudio.ca
+                  </a>
+                </p>
+              </address>
+            </div>
+          </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40">
+        {/* Divider */}
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8" />
+
+        {/* Bottom bar */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/25">
           <p>&copy; {new Date().getFullYear()} Ninh Studio. All rights reserved.</p>
-          <p>Made with love in East Vancouver.</p>
+          <p className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent/60 inline-block" />
+            Made with care in East Vancouver
+          </p>
         </div>
       </div>
     </footer>

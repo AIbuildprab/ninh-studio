@@ -1,48 +1,128 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
+
+const services = [
+  "Headshots & Portraits",
+  "Baby Photography",
+  "Boudoir Photography",
+  "Commercial Photography",
+  "Corporate Photography",
+  "Events & Parties",
+];
 
 export function HeroSection() {
   const [offsetY, setOffsetY] = useState(0);
+  const [serviceIdx, setServiceIdx] = useState(0);
+  const [serviceFade, setServiceFade] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => setOffsetY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setServiceFade(false);
+      setTimeout(() => {
+        setServiceIdx((i) => (i + 1) % services.length);
+        setServiceFade(true);
+      }, 300);
+    }, 2800);
+    return () => clearInterval(interval);
   }, []);
 
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const scrollDown = () => {
+    window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+  };
+
   return (
     <section className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center pt-20">
-      {/* Background Image with Parallax */}
+      {/* Background with Parallax */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat w-full h-full"
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat w-full h-[120%] -top-[10%]"
         style={{
           backgroundImage: "url('/images/hero.png')",
-          transform: `translateY(${offsetY * 0.4}px)`,
+          transform: `translateY(${offsetY * 0.35}px)`,
+          willChange: "transform",
         }}
       />
-      {/* Overlay - subtle dark gradient on bottom 40% only */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent h-[60%] top-auto" />
-      <div className="absolute inset-0 z-0 bg-black/20" /> {/* Slight overall darkening for text readability */}
 
-      <div className="relative z-10 max-w-[1180px] w-full mx-auto px-6 flex flex-col items-center text-center mt-16 md:mt-24">
-        <span className="animate-in fade-in slide-in-from-bottom-8 duration-700 uppercase tracking-[0.1em] text-accent font-medium text-sm md:text-base mb-6 drop-shadow-sm">
-          East Vancouver's Creative Photography Studio
+      {/* Overlays */}
+      <div className="absolute inset-0 z-[1] bg-black/30" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+
+      {/* Amber vertical line accent — left side */}
+      <div className="absolute left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:flex flex-col items-center gap-3">
+        <div className="w-px h-20 bg-gradient-to-b from-transparent to-accent/80" />
+        <span className="text-accent/70 text-[10px] tracking-[0.25em] uppercase rotate-[-90deg] whitespace-nowrap translate-y-0">
+          5530 Joyce St
         </span>
-        <h1 className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100 fill-mode-both font-display font-extrabold text-5xl md:text-[72px] leading-[1.1] text-white max-w-4xl mb-8 drop-shadow-md">
-          Your Story Deserves to Be Seen.
+        <div className="w-px h-20 bg-gradient-to-t from-transparent to-accent/80" />
+      </div>
+
+      {/* Main content */}
+      <div className="relative z-10 max-w-[1100px] w-full mx-auto px-6 flex flex-col items-center text-center">
+
+        {/* Kicker */}
+        <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 flex items-center gap-3 mb-7">
+          <div className="w-8 h-px bg-accent/70" />
+          <span className="uppercase tracking-[0.18em] text-accent font-semibold text-xs md:text-sm">
+            East Vancouver's Creative Photography Studio
+          </span>
+          <div className="w-8 h-px bg-accent/70" />
+        </div>
+
+        {/* Headline */}
+        <h1 className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100 fill-mode-both font-display font-extrabold leading-[1.05] text-white mb-3">
+          <span className="block text-5xl md:text-[80px] drop-shadow-lg">Your Story</span>
+          <span className="block text-5xl md:text-[80px] drop-shadow-lg">
+            Deserves to Be{" "}
+            <span className="relative inline-block">
+              Seen.
+              <svg
+                className="absolute -bottom-1 left-0 w-full"
+                viewBox="0 0 200 8"
+                preserveAspectRatio="none"
+                aria-hidden
+              >
+                <path
+                  d="M0 6 Q50 1 100 5 Q150 9 200 4"
+                  stroke="#C4883A"
+                  strokeWidth="2.5"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+          </span>
         </h1>
-        <p className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both text-lg md:text-xl text-white/90 max-w-2xl mb-10 drop-shadow">
-          Professional headshots, portraits, weddings, and studio rental all in a bright, welcoming space on Joyce Street. No stiff poses. No intimidating setups. Just great photos.
+
+        {/* Rotating service */}
+        <div className="animate-in fade-in duration-700 delay-200 fill-mode-both h-8 flex items-center justify-center mb-6">
+          <span
+            className="text-sm md:text-base font-medium text-white/60 uppercase tracking-[0.12em] transition-all duration-300"
+            style={{ opacity: serviceFade ? 1 : 0, transform: serviceFade ? "translateY(0)" : "translateY(6px)" }}
+          >
+            {services[serviceIdx]}
+          </span>
+        </div>
+
+        {/* Tagline */}
+        <p className="animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300 fill-mode-both text-base md:text-lg text-white/80 max-w-xl mb-10 leading-relaxed">
+          Capturing timeless, high-quality images with a modern, artistic touch — right here on Joyce Street in East Van.
         </p>
 
-        <div className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500 fill-mode-both flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        {/* CTAs */}
+        <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 delay-500 fill-mode-both flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-14">
           <Button
             size="lg"
-            className="bg-accent hover:bg-accent/90 text-white min-w-[200px] tracking-wide"
+            className="bg-accent hover:bg-accent/85 text-white min-w-[200px] tracking-wide text-sm font-semibold shadow-lg shadow-accent/20"
             onClick={scrollToContact}
           >
             Book a Session
@@ -50,25 +130,33 @@ export function HeroSection() {
           <Button
             size="lg"
             variant="outline"
-            className="border-white text-white hover:bg-white hover:text-foreground bg-transparent min-w-[200px] tracking-wide"
+            className="border-white/60 text-white hover:bg-white hover:text-foreground bg-white/5 backdrop-blur-sm min-w-[200px] tracking-wide text-sm font-semibold"
             onClick={scrollToContact}
           >
             Rent the Studio
           </Button>
         </div>
 
-        <div className="animate-in fade-in duration-1000 delay-700 fill-mode-both mt-16 flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-xs md:text-sm text-white/80 font-medium">
-          <div className="flex items-center gap-1">
-            <span className="text-accent">★</span> Highly Rated on Google
-          </div>
-          <span className="hidden md:inline text-white/30">•</span>
-          <div>Joyce-Collingwood, East Van</div>
-          <span className="hidden md:inline text-white/30">•</span>
-          <div>Steps from SkyTrain</div>
-          <span className="hidden md:inline text-white/30">•</span>
-          <div>Free Parking</div>
+        {/* Trust bar */}
+        <div className="animate-in fade-in duration-1000 delay-700 fill-mode-both flex flex-wrap justify-center items-center gap-x-5 gap-y-2 text-xs text-white/55 font-medium">
+          <span className="flex items-center gap-1"><span className="text-accent">★★★★★</span> Google Rated</span>
+          <span className="hidden md:block w-px h-3 bg-white/20" />
+          <span>Joyce-Collingwood SkyTrain</span>
+          <span className="hidden md:block w-px h-3 bg-white/20" />
+          <span>Free Parking</span>
+          <span className="hidden md:block w-px h-3 bg-white/20" />
+          <span>Natural Light Studio</span>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <button
+        onClick={scrollDown}
+        aria-label="Scroll down"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors group"
+      >
+        <ChevronDown className="w-5 h-5 animate-bounce" />
+      </button>
     </section>
   );
 }
