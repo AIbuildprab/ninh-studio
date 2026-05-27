@@ -1,0 +1,62 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "cC9oejK2cN46thu8vMqj5"
+uri = "file://artifacts/ninh-studio/public/images/hero.png"
+type = "image"
+title = "Studio interior wide shot"
+
+[[generated]]
+id = "AZhYGZZBVua3dg_XzipqV"
+uri = "file://artifacts/ninh-studio/public/images/about.png"
+type = "image"
+title = "Photographer candid shot"
+
+[[generated]]
+id = "YQHDh_rDMxN726PG_rjP0"
+uri = "file://artifacts/ninh-studio/public/images/studio-full.png"
+type = "image"
+title = "Vertical studio interior"
+
+[[generated]]
+id = "xECT44CZg_3kI0sRaZiS6"
+uri = "file://artifacts/ninh-studio/public/images/studio-detail.png"
+type = "image"
+title = "Studio makeup station"
+
+[[generated]]
+id = "45XTdnBcoGVuqaqZnGx0x"
+uri = "file://artifacts/ninh-studio/public/images/gallery-1.png"
+type = "image"
+title = "Gallery portrait 1"
+
+[[generated]]
+id = "1y3rvXknBmKCUmh8d7HzE"
+uri = "file://artifacts/ninh-studio/public/images/gallery-2.png"
+type = "image"
+title = "Gallery wedding 1"
+
+[[generated]]
+id = "gC-FzVjiBxjGhJQigKHht"
+uri = "file://artifacts/ninh-studio/public/images/gallery-3.png"
+type = "image"
+title = "Gallery lifestyle 1"
+
+[[generated]]
+id = "5ewaOyrpyKWmSzBwplIsj"
+uri = "file://artifacts/ninh-studio/public/images/gallery-4.png"
+type = "image"
+title = "Gallery family 1"
+
+[[generated]]
+id = "xP_MePkHvhYSRf8YtR8Z4"
+uri = "file://artifacts/ninh-studio/public/images/gallery-5.png"
+type = "image"
+title = "Gallery creative 1"
+
+[[generated]]
+id = "Yt8mTYM6AVpWqSWL4J6Q1"
+uri = "file://artifacts/ninh-studio/public/images/gallery-6.png"
+type = "image"
+title = "Gallery headshot 2"
