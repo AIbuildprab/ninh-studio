@@ -288,6 +288,50 @@
   }
 }
 
+/* ── Premium easing tokens ── */
+:root {
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* ── Page enter ── */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(12px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
+}
+main {
+  animation: page-enter 0.7s var(--ease-expo) both;
+}
+
+/* ── Blur-fade section reveal (apply to .reveal-blur) ── */
+.reveal-blur {
+  transition: opacity 0.8s var(--ease-expo),
+              transform 0.8s var(--ease-expo),
+              filter 0.8s var(--ease-expo);
+}
+.reveal-blur.hidden-state {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(8px);
+}
+.reveal-blur.visible-state {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* ── Button micro-interactions ── */
+button, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Image hover shimmer (overlay glow on service cards) ── */
+@keyframes soft-glow {
+  0%   { opacity: 0; }
+  50%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 /* ── Script / cursive logo font ── */
 .font-script {
   font-family: 'Pinyon Script', cursive;

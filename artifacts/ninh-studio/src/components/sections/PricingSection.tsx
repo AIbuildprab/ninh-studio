@@ -29,8 +29,8 @@ export function PricingSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Card 1 */}
           <div 
-            className={`relative bg-card rounded-2xl border-2 border-accent p-8 md:p-10 shadow-lg flex flex-col transition-all duration-700 ease-out ${
-              isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            className={`relative bg-card rounded-2xl border-2 border-accent p-8 md:p-10 shadow-lg flex flex-col reveal-blur transition-all duration-700 ease-out ${
+              isIntersecting ? "visible-state" : "hidden-state"
             }`}
             style={{ transitionDelay: "100ms" }}
           >
@@ -79,8 +79,8 @@ export function PricingSection() {
 
           {/* Card 2 */}
           <div 
-            className={`bg-card rounded-2xl border border-border p-8 md:p-10 shadow-sm flex flex-col transition-all duration-700 ease-out ${
-              isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+            className={`bg-card rounded-2xl border border-border p-8 md:p-10 shadow-sm flex flex-col reveal-blur transition-all duration-700 ease-out ${
+              isIntersecting ? "visible-state" : "hidden-state"
             }`}
             style={{ transitionDelay: "250ms" }}
           >

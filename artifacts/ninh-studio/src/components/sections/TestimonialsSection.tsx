@@ -39,8 +39,8 @@ export function TestimonialsSection() {
           {testimonials.map((t, i) => (
             <div 
               key={i}
-              className={`bg-white p-8 rounded-xl shadow-sm border border-black/5 flex flex-col transition-all duration-700 ${
-                isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+              className={`bg-white p-8 rounded-xl shadow-sm border border-black/5 flex flex-col reveal-blur transition-all duration-700 ${
+                isIntersecting ? "visible-state" : "hidden-state"
               }`}
               style={{ transitionDelay: `${isIntersecting ? 100 + (i * 150) : 0}ms` }}
             >

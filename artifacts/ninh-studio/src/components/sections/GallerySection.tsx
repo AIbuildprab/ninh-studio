@@ -127,11 +127,17 @@ export function GallerySection() {
         </p>
       </div>
 
-      {/* Marquee rows */}
+      {/* Marquee rows — edge-fade mask */}
       <div
         className={`flex flex-col gap-3 transition-all duration-700 delay-200 ${
           isIntersecting ? "opacity-100" : "opacity-0"
         }`}
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
+        }}
       >
         <MarqueeRow images={row1} direction="left" speed={38} />
         <MarqueeRow images={row2} direction="right" speed={46} />

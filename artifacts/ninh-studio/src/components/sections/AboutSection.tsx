@@ -8,8 +8,8 @@ export function AboutSection() {
     <section id="about" className="py-[60px] md:py-[100px] bg-background w-full overflow-hidden" ref={ref}>
       <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
         <div
-          className={`transition-all duration-700 ease-out ${
-            isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
+          className={`reveal-blur transition-all duration-700 ${
+            isIntersecting ? "visible-state" : "hidden-state"
           }`}
         >
           <div className="relative aspect-[3/4] w-full rounded-lg overflow-hidden shadow-md">
@@ -24,9 +24,10 @@ export function AboutSection() {
         </div>
 
         <div
-          className={`flex flex-col transition-all duration-700 delay-200 ease-out ${
-            isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+          className={`flex flex-col reveal-blur transition-all duration-700 delay-200 ${
+            isIntersecting ? "visible-state" : "hidden-state"
           }`}
+          style={{ transitionDelay: "200ms" }}
         >
           <span className="text-accent uppercase tracking-widest text-xs font-medium mb-4">
             About the Studio

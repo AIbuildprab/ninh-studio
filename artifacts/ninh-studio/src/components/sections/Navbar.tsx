@@ -33,8 +33,10 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-white shadow-[0_2px_16px_rgba(0,0,0,0.08)] py-4" : "bg-transparent py-6"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+          scrolled
+            ? "bg-white/80 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.06)] py-4"
+            : "bg-transparent py-6"
         }`}
       >
         <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
