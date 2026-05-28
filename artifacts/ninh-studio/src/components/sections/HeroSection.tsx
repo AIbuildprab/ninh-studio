@@ -86,14 +86,14 @@ export function HeroSection() {
             <span className="relative inline-block">
               Seen.
               <svg
-                className="absolute -bottom-1 left-0 w-full"
+                className="absolute -bottom-1 left-0 w-full text-accent"
                 viewBox="0 0 200 8"
                 preserveAspectRatio="none"
                 aria-hidden
               >
                 <path
                   d="M0 6 Q50 1 100 5 Q150 9 200 4"
-                  stroke="#C4883A"
+                  stroke="currentColor"
                   strokeWidth="2.5"
                   fill="none"
                   strokeLinecap="round"

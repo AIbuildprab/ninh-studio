@@ -40,11 +40,11 @@ export function Navbar() {
         <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={`font-display font-extrabold text-xl tracking-tight transition-colors ${
-              scrolled ? "text-primary-900" : "text-white"
+            className={`font-script text-[2rem] leading-none transition-colors ${
+              scrolled ? "text-accent" : "text-white"
             }`}
           >
-            NINH STUDIO
+            Ninh Studio
           </button>
 
           {/* Desktop Nav */}
@@ -87,8 +87,8 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-[60] bg-white flex flex-col p-6 animate-in fade-in zoom-in-95 duration-200">
           <div className="flex justify-between items-center mb-12">
-            <span className="font-display font-extrabold text-xl tracking-tight text-foreground">
-              NINH STUDIO
+            <span className="font-script text-[2rem] leading-none text-accent">
+              Ninh Studio
             </span>
             <button onClick={() => setMobileMenuOpen(false)}>
               <X className="text-foreground h-8 w-8" />

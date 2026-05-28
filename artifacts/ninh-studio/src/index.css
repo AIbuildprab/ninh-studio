@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Plus+Jakarta+Sans:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400;1,500&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @plugin "@tailwindcss/typography";
@@ -65,37 +65,37 @@
   --background: 0 0% 100%;
   /* Text Primary: #1A1A1A -> 0 0% 10% */
   --foreground: 0 0% 10%;
-  /* Border/Divider: #E8E4DF -> 34 20% 89% */
-  --border: 34 20% 89%;
+  /* Border/Divider: blush neutral */
+  --border: 340 12% 90%;
   
   --card: 0 0% 100%;
   --card-foreground: 0 0% 10%;
-  --card-border: 34 20% 89%;
+  --card-border: 340 12% 90%;
 
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 10%;
-  --popover-border: 34 20% 89%;
+  --popover-border: 340 12% 90%;
 
-  /* Accent: #C4883A -> 34 56% 50% */
-  --primary: 34 56% 50%;
+  /* Accent: Dusty Rose Pink -> 340 52% 60% */
+  --primary: 340 52% 60%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary Background: #F7F5F2 -> 40 25% 96% */
-  --secondary: 40 25% 96%;
+  /* Secondary Background: #F7F5F5 -> soft blush neutral */
+  --secondary: 340 20% 97%;
   /* Text Secondary: #6B6B6B -> 0 0% 42% */
   --secondary-foreground: 0 0% 42%;
 
-  --muted: 40 25% 96%;
+  --muted: 340 20% 97%;
   --muted-foreground: 0 0% 42%;
 
-  --accent: 34 56% 50%;
+  --accent: 340 52% 60%;
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --input: 34 20% 89%;
-  --ring: 34 56% 50%;
+  --input: 340 15% 90%;
+  --ring: 340 52% 60%;
 
   --app-font-sans: 'DM Sans', sans-serif;
   --app-font-display: 'Plus Jakarta Sans', sans-serif;
@@ -286,6 +286,11 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+}
+
+/* ── Script / cursive logo font ── */
+.font-script {
+  font-family: 'Pinyon Script', cursive;
 }
 
 /* ── Gallery marquee animations ── */

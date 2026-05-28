@@ -32,11 +32,11 @@ export function Footer() {
 
       {/* Giant watermark wordmark */}
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[1] pointer-events-none select-none whitespace-nowrap font-display font-extrabold leading-none text-white"
-        style={{ fontSize: "clamp(80px, 18vw, 220px)", opacity: 0.03, letterSpacing: "-0.02em" }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[1] pointer-events-none select-none whitespace-nowrap font-script leading-none text-accent"
+        style={{ fontSize: "clamp(80px, 18vw, 220px)", opacity: 0.06 }}
         aria-hidden
       >
-        NINH STUDIO
+        Ninh Studio
       </div>
 
       {/* Content */}
@@ -49,8 +49,8 @@ export function Footer() {
           <div className="md:col-span-5">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-1 h-8 bg-accent rounded-full" />
-              <span className="font-display font-extrabold text-2xl tracking-tight text-white">
-                NINH STUDIO
+              <span className="font-script text-[2.2rem] leading-none text-accent">
+                Ninh Studio
               </span>
             </div>
             <p className="text-white/45 text-sm leading-relaxed mb-8 max-w-xs">
