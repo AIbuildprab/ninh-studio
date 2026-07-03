@@ -62,21 +62,23 @@ function FloatingBookNow() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground font-sans">
+    <>
       <ScrollProgress />
       <FloatingBookNow />
       <Navbar />
-      <HeroSection />
-      <SocialProofBar />
-      <AboutSection />
-      <ServicesSection />
-      <StudioSection />
-      <GallerySection />
-      <TestimonialsSection />
-      <PricingSection />
-      <InstagramSection />
-      <ContactSection />
-      <Footer />
-    </main>
+      <main className="page-enter-content min-h-screen bg-background text-foreground font-sans">
+        <HeroSection />
+        <SocialProofBar />
+        <AboutSection />
+        <ServicesSection />
+        <StudioSection />
+        <GallerySection />
+        <TestimonialsSection />
+        <PricingSection />
+        <InstagramSection />
+        <ContactSection />
+        <Footer />
+      </main>
+    </>
   );
 }
