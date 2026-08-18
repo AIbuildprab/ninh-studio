@@ -1,31 +1,25 @@
-import React, { useState } from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Button } from "@/components/ui/button";
+import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
+import { site, type SiteImage } from "@/lib/site";
 
-const allImages = [
-  { src: "/images/gallery-1.png", alt: "Professional warm headshot" },
-  { src: "/images/gallery-2.png", alt: "Candid wedding moment" },
-  { src: "/images/gallery-3.png", alt: "Lifestyle portrait" },
-  { src: "/images/gallery-4.png", alt: "Candid family photo" },
-  { src: "/images/gallery-5.png", alt: "Creative self-portrait" },
-  { src: "/images/gallery-6.png", alt: "Modern business headshot" },
-  { src: "/images/gallery-7.png", alt: "Maternity portrait" },
-  { src: "/images/gallery-8.png", alt: "Couple portrait" },
-  { src: "/images/gallery-9.png", alt: "Group portrait" },
-  { src: "/images/studio-full.png", alt: "Studio space" },
-  { src: "/images/studio-detail.png", alt: "Studio detail" },
-  { src: "/images/about.png", alt: "Behind the lens" },
-];
+const clientWork = [...site.galleryItems];
+const studioShots = [...site.studioItems];
 
-const row1 = [
-  allImages[0], allImages[1], allImages[2], allImages[3], allImages[4], allImages[5],
+const row1: SiteImage[] = [
+  clientWork[0], clientWork[1], clientWork[2], studioShots[0], clientWork[3], clientWork[4],
 ];
-const row2 = [
-  allImages[6], allImages[7], allImages[8], allImages[9], allImages[10], allImages[11],
+const row2: SiteImage[] = [
+  clientWork[5], clientWork[6], studioShots[1], clientWork[7], studioShots[2], clientWork[8],
 ];
-const row3 = [
-  allImages[3], allImages[0], allImages[9], allImages[2], allImages[6], allImages[11],
+const row3: SiteImage[] = [
+  studioShots[3], clientWork[2], studioShots[4], clientWork[1], clientWork[5], studioShots[5],
 ];
 
 function MarqueeRow({
@@ -33,7 +27,7 @@ function MarqueeRow({
   direction = "left",
   speed = 35,
 }: {
-  images: typeof allImages;
+  images: SiteImage[];
   direction?: "left" | "right";
   speed?: number;
 }) {
@@ -42,63 +36,78 @@ function MarqueeRow({
   return (
     <div className="overflow-hidden w-full group">
       <div
-        className="flex gap-3 w-max"
+        className="gallery-marquee flex gap-3 w-max"
         style={{
           animation: `marquee-${direction} ${speed}s linear infinite`,
-          animationPlayState: "running",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLDivElement).style.animationPlayState = "paused";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLDivElement).style.animationPlayState = "running";
         }}
       >
         {doubled.map((img, i) => (
-          <MarqueeImage key={i} img={img} />
+          <MarqueeImage key={`${img.src}-${i}`} img={img} />
         ))}
       </div>
     </div>
   );
 }
 
-function MarqueeImage({ img }: { img: (typeof allImages)[0] }) {
+function MarqueeImage({ img }: { img: SiteImage }) {
   const [lightbox, setLightbox] = useState(false);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
 
   return (
     <>
-      <div
+      <button
+        type="button"
         className="relative h-64 md:h-80 w-auto flex-shrink-0 overflow-hidden rounded cursor-pointer group/img"
         style={{ aspectRatio: "3/4" }}
         onClick={() => setLightbox(true)}
+        aria-label={`View ${img.alt}`}
       >
-        <img
+        <PlaceholderImage
           src={img.src}
           alt={img.alt}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover/img:scale-105"
-          loading="lazy"
-          draggable={false}
+          fill
+          sizes="240px"
+          objectPosition={img.objectPosition}
+          className={cn(
+            "object-cover transition-transform duration-500 group-hover/img:scale-105",
+            img.className
+          )}
         />
         <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/15 transition-colors duration-300" />
-      </div>
+      </button>
 
       {lightbox && (
         <div
           className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-16 animate-in fade-in duration-200"
           onClick={() => setLightbox(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={img.alt}
         >
           <button
             className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors p-2"
             onClick={() => setLightbox(false)}
+            aria-label="Close"
           >
             <X className="w-7 h-7" />
           </button>
-          <img
-            src={img.src}
-            alt={img.alt}
-            className="max-w-full max-h-full object-contain animate-in zoom-in-95 duration-300"
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="relative w-full h-full max-w-5xl max-h-full" onClick={(e) => e.stopPropagation()}>
+            <PlaceholderImage
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="90vw"
+              className="object-contain"
+            />
+          </div>
         </div>
       )}
     </>
@@ -110,24 +119,20 @@ export function GallerySection() {
 
   return (
     <section id="gallery" className="py-[60px] md:py-[100px] bg-background w-full overflow-hidden" ref={ref}>
-      {/* Header */}
       <div
-        className={`max-w-[1180px] mx-auto px-6 text-center max-w-2xl mb-12 transition-all duration-700 ease-out ${
+        className={`mx-auto px-6 text-center max-w-2xl mb-12 transition-all duration-700 ease-out ${
           isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">
-          Our Work
-        </span>
-        <h2 className="font-display font-extrabold text-4xl md:text-5xl text-foreground mb-4">
-          Real People. Real Moments.
+        <SectionEyebrow className="text-center">Portfolio</SectionEyebrow>
+        <h2 className="font-display font-medium text-4xl md:text-5xl text-foreground mb-4">
+          Sessions &amp; the studio.
         </h2>
         <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-          Every photo was taken right here in our studio or out in the world with our clients.
+          Portraits, weddings, hair &amp; makeup, and the space on Joyce Street — natural light, backdrops, and a makeup station.
         </p>
       </div>
 
-      {/* Marquee rows — edge-fade mask */}
       <div
         className={`flex flex-col gap-3 transition-all duration-700 delay-200 ${
           isIntersecting ? "opacity-100" : "opacity-0"
@@ -144,18 +149,15 @@ export function GallerySection() {
         <MarqueeRow images={row3} direction="left" speed={30} />
       </div>
 
-      {/* CTA */}
       <div
         className={`flex justify-center mt-12 transition-all duration-700 delay-500 ${
           isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <Button
-          variant="outline"
-          className="border-accent text-accent hover:bg-accent hover:text-white"
-          onClick={() => window.open("https://www.instagram.com/ninhstudio/", "_blank")}
-        >
-          See More on Instagram
+        <Button asChild variant="outline" className="border-foreground/20 text-foreground hover:bg-primary hover:text-primary-foreground">
+          <a href={site.instagram} target="_blank" rel="noreferrer">
+            See more on Instagram
+          </a>
         </Button>
       </div>
     </section>

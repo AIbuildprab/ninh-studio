@@ -1,111 +1,111 @@
+"use client";
+
 import React from "react";
+import { cn } from "@/lib/utils";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { SectionEyebrow } from "@/components/SectionEyebrow";
+import { site } from "@/lib/site";
 
 const services = [
   {
     title: "Headshots & Portraits",
-    desc: "Look the part. LinkedIn profiles, speaking bios, or business cards — we'll get you a photo you're proud to use.",
-    image: "/images/gallery-6.png",
-    tag: "Most Popular",
+    desc: "LinkedIn, personal branding, and portraits with direction so you don’t have to guess what to do with your face.",
+    image: site.serviceImages.headshots,
+    tag: "Photography",
+  },
+  {
+    title: "Wedding Photography",
+    desc: "Wedding-day coverage with the same unhurried pace as the studio — from getting ready through the last dance.",
+    image: site.serviceImages.wedding,
+  },
+  {
+    title: "Hair & Makeup",
+    desc: "Bridal trials and wedding-day hair & makeup with Michelle. Notes and reference photos so the look holds.",
+    image: site.serviceImages.hmu,
   },
   {
     title: "Baby Photography",
-    desc: "Soft, timeless newborn and milestone portraits. Safe, warm, and unhurried — we work at your baby's pace.",
-    image: "/images/gallery-7.png",
+    desc: "Newborn and milestone portraits. Soft, unhurried, at your baby’s pace.",
+    image: site.serviceImages.baby,
   },
   {
     title: "Boudoir Photography",
-    desc: "Empowering, artistic, and completely private. A beautiful gift to yourself or someone special.",
-    image: "/images/gallery-8.png",
+    desc: "Private, artistic sessions in-studio. A gift to yourself, or someone special.",
+    image: site.serviceImages.boudoir,
   },
   {
-    title: "Commercial Photography",
-    desc: "Products, brands, and business content. Clean, high-quality images ready for web, print, or social.",
-    image: "/images/gallery-9.png",
-  },
-  {
-    title: "Corporate Photography",
-    desc: "Team photos, executive portraits, and office event coverage. Polished images that reflect your brand.",
-    image: "/images/gallery-1.png",
-  },
-  {
-    title: "Events & Parties",
-    desc: "Weddings, engagements, birthdays, and more. We travel to you and capture every moment that matters.",
-    image: "/images/gallery-2.png",
+    title: "Commercial & Events",
+    desc: "Products, teams, parties, and on-location coverage when the work needs to leave Joyce Street.",
+    image: site.serviceImages.commercial,
   },
 ];
 
 export function ServicesSection() {
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 });
 
-  const scrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section id="sessions" className="py-[60px] md:py-[100px] bg-[#0E0E0E] w-full" ref={ref}>
+    <section id="sessions" className="py-[60px] md:py-[100px] bg-secondary w-full" ref={ref}>
       <div className="max-w-[1180px] mx-auto px-6">
-
         <div
           className={`text-center max-w-2xl mx-auto mb-14 transition-all duration-700 ease-out ${
             isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <span className="text-accent uppercase tracking-widest text-xs font-semibold mb-4 block">
-            What We Do
-          </span>
-          <h2 className="font-display font-extrabold text-4xl md:text-5xl text-white mb-4">
-            Every Kind of Photo. One Studio.
+          <SectionEyebrow className="text-center">What We Do</SectionEyebrow>
+          <h2 className="font-display font-medium text-4xl md:text-5xl text-foreground mb-4">
+            Photography, then makeup &amp; weddings.
           </h2>
-          <p className="text-white/50 text-lg">
-            From your first headshot to your wedding day — we've got you covered.
+          <p className="text-secondary-foreground text-lg">
+            Sessions in the studio, hair and makeup in-house, and the space itself when you need to rent it.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
-            <button
-              key={i}
-              onClick={scrollToContact}
-              className={`group relative overflow-hidden rounded-xl aspect-[4/5] text-left transition-all duration-700 ease-out focus:outline-none ${
+            <a
+              key={service.title}
+              href={site.links.session}
+              className={`group relative overflow-hidden rounded-sm aspect-[4/5] text-left transition-all duration-700 ease-out focus:outline-none ${
                 isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
               style={{ transitionDelay: `${isIntersecting ? i * 80 : 0}ms` }}
             >
-              {/* Background photo */}
-              <img
-                src={service.image}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
+              <PlaceholderImage
+                src={service.image.src}
+                alt={service.image.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                objectPosition={service.image.objectPosition}
+                className={cn(
+                  "object-cover transition-transform duration-700 group-hover:scale-105",
+                  service.image.className
+                )}
               />
 
-              {/* Gradient overlay — stronger at bottom */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-opacity duration-300 group-hover:from-black/95 group-hover:via-black/60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/45 to-black/10 transition-opacity duration-300 group-hover:from-black/95 group-hover:via-black/55" />
 
-              {/* Popular badge */}
               {service.tag && (
-                <div className="absolute top-4 left-4 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+                <div className="absolute top-4 left-4 bg-background/95 text-foreground text-[10px] font-semibold uppercase tracking-wider px-2.5 py-1">
                   {service.tag}
                 </div>
               )}
 
-              {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col">
-                <h3 className="font-display font-bold text-xl text-white mb-2 leading-tight">
+                <h3 className="font-display font-medium text-2xl text-white mb-2 leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors duration-300">
+                <p className="text-white/65 text-sm leading-relaxed group-hover:text-white/85 transition-colors duration-300">
                   {service.desc}
                 </p>
                 <div className="mt-4 flex items-center gap-1.5 text-accent text-xs font-semibold uppercase tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                  Book this session
+                  Inquire
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="inline-block">
                     <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
               </div>
-            </button>
+            </a>
           ))}
         </div>
       </div>

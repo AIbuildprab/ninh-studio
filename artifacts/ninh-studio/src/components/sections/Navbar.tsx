@@ -1,6 +1,10 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/Logo";
+import { site } from "@/lib/site";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -15,85 +19,61 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (mobileMenuOpen) {
-      const scrollY = window.scrollY;
-      document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.left = "0";
-      document.body.style.right = "0";
-      document.body.style.width = "100%";
-      return () => {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.left = "";
-        document.body.style.right = "";
-        document.body.style.width = "";
-        window.scrollTo(0, scrollY);
-      };
+    if (!mobileMenuOpen) {
+      return;
     }
+
+    const scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollY);
+    };
   }, [mobileMenuOpen]);
 
-  const scrollTo = (id: string) => {
-    setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const navLinks = [
-    { label: "Sessions", id: "sessions" },
-    { label: "Studio", id: "studio" },
-    { label: "Gallery", id: "gallery" },
-    { label: "Pricing", id: "pricing" },
-    { label: "Contact", id: "contact" },
-  ];
+  const closeMenu = () => setMobileMenuOpen(false);
 
   return (
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
           scrolled
-            ? "bg-white/80 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.06)] py-4"
-            : "bg-transparent py-6"
+            ? "bg-[hsl(40_33%_97%/0.92)] backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.06)] py-3"
+            : "bg-transparent py-5"
         }`}
       >
         <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className={`font-script text-[2rem] leading-none transition-colors ${
-              scrolled ? "text-accent" : "text-white"
-            }`}
-          >
-            Ninh Studio
-          </button>
+          <a href="#" aria-label={site.name} className="shrink-0">
+            <Logo variant={scrolled ? "dark" : "light"} size={scrolled ? "sm" : "md"} />
+          </a>
 
-          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            <div className="flex gap-6">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollTo(link.id)}
-                  className={`text-sm font-medium transition-colors hover:text-accent ${
-                    scrolled ? "text-secondary-foreground" : "text-white/90 hover:text-white"
+            <div className="flex gap-7">
+              {site.nav.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm tracking-wide transition-colors hover:text-accent ${
+                    scrolled ? "text-foreground/80" : "text-white/85 hover:text-white"
                   }`}
                 >
                   {link.label}
-                </button>
+                </a>
               ))}
             </div>
-            <Button
-              onClick={() => scrollTo("contact")}
-              className={`font-medium tracking-wide bg-accent text-white hover:bg-accent/90 hover:-translate-y-[1px] shadow-sm hover:shadow-md transition-all ${
-                !scrolled && "border-white/20"
-              }`}
-            >
-              Book Now
+            <Button asChild className="font-medium tracking-wide bg-primary text-primary-foreground hover:bg-primary/90">
+              <a href={site.links.session}>Book Now</a>
             </Button>
           </div>
 
-          {/* Mobile Toggle */}
           <button
             className="md:hidden text-2xl"
             onClick={() => setMobileMenuOpen(true)}
@@ -104,33 +84,29 @@ export function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] bg-white flex flex-col p-6 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-[60] bg-background flex flex-col p-6 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
           <div className="flex justify-between items-center mb-12">
-            <span className="font-script text-[2rem] leading-none text-accent">
-              Ninh Studio
-            </span>
-            <button onClick={() => setMobileMenuOpen(false)}>
+            <Logo variant="dark" size="md" />
+            <button onClick={closeMenu} aria-label="Close menu">
               <X className="text-foreground h-8 w-8" />
             </button>
           </div>
           <div className="flex flex-col gap-6 items-center justify-center flex-1">
-            {navLinks.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollTo(link.id)}
-                className="text-2xl font-display font-bold text-foreground"
+            {site.nav.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className="text-3xl font-display font-medium text-foreground"
               >
                 {link.label}
-              </button>
+              </a>
             ))}
-            <Button
-              onClick={() => scrollTo("contact")}
-              size="lg"
-              className="mt-8 bg-accent text-white w-full max-w-[200px]"
-            >
-              Book Now
+            <Button asChild size="lg" className="mt-8 bg-primary text-primary-foreground w-full max-w-[200px]">
+              <a href={site.links.session} onClick={closeMenu}>
+                Book Now
+              </a>
             </Button>
           </div>
         </div>

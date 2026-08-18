@@ -1,0 +1,11 @@
+Photos are wired into the site.
+
+Current assets:
+  hero.png            Hero background
+  about.png           About section
+  studio-full.png     Studio section (main)
+  studio-detail.png   Studio section (detail)
+  gallery-1..9.png    Services cards + gallery marquee
+  space-1..8.avif     Joyce Street studio shots (gallery mix-in)
+
+To swap a photo, replace the file keeping the same name, then rebuild.
