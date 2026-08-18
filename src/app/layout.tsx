@@ -30,8 +30,24 @@ const cormorant = localFont({
   variable: "--font-cormorant",
 });
 
+function metadataBaseUrl() {
+  const raw =
+    process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "") ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "") ||
+    "https://ninhstudio.ca";
+
+  try {
+    return new URL(raw.includes("://") ? raw : `https://${raw}`);
+  } catch {
+    return new URL("https://ninhstudio.ca");
+  }
+}
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: metadataBaseUrl(),
   title: "Ninh Studio | Photography Studio in East Vancouver",
   description:
     "Photography studio on Joyce Street in East Vancouver. Portraits, wedding photography, hair & makeup, and studio rental from $60/hr. Steps from Joyce-Collingwood SkyTrain.",
