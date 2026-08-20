@@ -45,15 +45,19 @@ export function ServicesSection() {
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <section id="sessions" className="py-[60px] md:py-[100px] bg-secondary w-full" ref={ref}>
+    <section
+      id="sessions"
+      className="py-[60px] lg:py-[80px] bg-secondary w-full scroll-mt-24 lg:scroll-mt-28"
+      ref={ref}
+    >
       <div className="max-w-[1180px] mx-auto px-6">
         <div
-          className={`text-center max-w-2xl mx-auto mb-14 transition-all duration-700 ease-out ${
+          className={`text-center max-w-2xl mx-auto mb-14 lg:mb-12 transition-all duration-700 ease-out ${
             isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <SectionEyebrow className="text-center">What We Do</SectionEyebrow>
-          <h2 className="font-display font-medium text-4xl md:text-5xl text-foreground mb-4">
+          <h2 className="font-display font-medium text-4xl lg:text-5xl text-foreground mb-4">
             Photography, then makeup &amp; weddings.
           </h2>
           <p className="text-secondary-foreground text-lg">

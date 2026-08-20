@@ -11,14 +11,18 @@ export function AboutSection() {
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.2 });
 
   return (
-    <section id="about" className="py-[60px] md:py-[100px] bg-background w-full overflow-hidden" ref={ref}>
-      <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+    <section
+      id="about"
+      className="py-[60px] bg-background w-full overflow-hidden md:scroll-mt-[-5.5rem] md:box-border md:flex md:h-dvh md:max-h-dvh md:flex-col md:py-0 md:pt-20 md:pb-8"
+      ref={ref}
+    >
+      <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-12 md:h-full md:min-h-0 md:flex-1 md:grid-cols-2 md:items-stretch md:gap-10">
         <div
-          className={`reveal-blur transition-all duration-700 ${
+          className={`reveal-blur transition-all duration-700 md:h-full md:min-h-0 ${
             isIntersecting ? "visible-state" : "hidden-state"
           }`}
         >
-          <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-md">
+          <div className="relative aspect-[3/4] w-full rounded-sm overflow-hidden shadow-md md:aspect-auto md:h-full md:min-h-0">
             <PlaceholderImage
               src={site.aboutImage.src}
               alt={site.aboutImage.alt}
@@ -32,32 +36,32 @@ export function AboutSection() {
         </div>
 
         <div
-          className={`flex flex-col reveal-blur transition-all duration-700 delay-200 ${
+          className={`flex flex-col reveal-blur transition-all duration-700 delay-200 md:h-full md:min-h-0 md:justify-center ${
             isIntersecting ? "visible-state" : "hidden-state"
           }`}
           style={{ transitionDelay: "200ms" }}
         >
-          <SectionEyebrow>About {site.owner}</SectionEyebrow>
-          <h2 className="font-display font-medium text-4xl md:text-5xl text-foreground mb-6 leading-tight">
-            Photography first. Then the rest, with care.
+          <SectionEyebrow className="md:mb-3">About {site.owner}</SectionEyebrow>
+          <h2 className="font-display font-medium text-4xl md:text-4xl lg:text-[2.5rem] text-foreground mb-4 leading-tight">
+            Unhurried sessions. Hair and makeup in the same room.
           </h2>
 
-          <div className="space-y-6 text-secondary-foreground text-base md:text-lg mb-10">
+          <div className="space-y-3 text-secondary-foreground text-base md:text-[15px] lg:text-base mb-5 leading-relaxed">
             <p>
-              Hi, I&apos;m {site.owner}. I built Ninh Studio on Joyce Street because I wanted a place where sessions don&apos;t feel rushed — where someone nervous in front of a camera can take a breath, and where hair and makeup happen in the same room as the shoot.
+              Hi, I&apos;m {site.owner}. I opened Ninh Studio on Joyce Street because I wanted photography to feel slower than it usually does — a place where someone nervous in front of a camera can take a breath, and where hair and makeup happen in the same room as the shoot.
             </p>
             <p>
-              The studio is built for real sessions — portraits, families, and wedding photography — with professional lighting, natural light, and room to work without watching the clock.
+              I photograph portraits, families, and weddings here. We work with both natural light and studio lighting, and the room is set up so we don&apos;t have to watch the clock.
             </p>
             <p>
-              Bridal trials include notes and reference photos so the wedding-day look stays true. Photographers in the city send their clients here for pre-wedding makeup, and families come in when they need someone patient in front of the camera.
+              Bridal trials include notes and reference photos, so the wedding-day look stays true. Photographers in the city send their clients here for pre-wedding makeup. Families come when they want someone patient behind the camera.
             </p>
             <p>
-              The studio itself is available to rent when you need a bright, equipped room — 597 square feet, two lights included, two free parking spots, and a short walk from Joyce-Collingwood Station.
+              When I&apos;m not shooting, the studio is available to rent — a bright, equipped room a short walk from Joyce–Collingwood Station.
             </p>
           </div>
 
-          <div className="grid grid-cols-3 gap-4 md:gap-6 border-t border-border pt-8">
+          <div className="grid grid-cols-3 gap-4 md:gap-6 border-t border-border pt-4">
             <div className="flex flex-col">
               <span className="font-display font-medium text-2xl text-foreground mb-1">{site.google.rating}★</span>
               <span className="text-sm text-secondary-foreground">{site.google.reviews} Google reviews</span>
