@@ -46,7 +46,7 @@ export function StudioSection() {
   return (
     <section
       id="studio"
-      className="py-12 pb-28 bg-background w-full overflow-hidden lg:scroll-mt-[-5.5rem] lg:box-border lg:flex lg:h-dvh lg:max-h-dvh lg:flex-col lg:py-0 lg:pt-20 lg:pb-8"
+      className="py-12 pb-28 bg-background w-full overflow-hidden scroll-mt-24 lg:scroll-mt-28 lg:box-border lg:flex lg:h-dvh lg:max-h-dvh lg:flex-col lg:py-0 lg:pt-20 lg:pb-8"
       ref={ref}
     >
       <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-6 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-2 lg:items-stretch lg:gap-12">

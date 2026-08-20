@@ -13,7 +13,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="py-12 pb-28 bg-background w-full overflow-hidden md:scroll-mt-[-5.5rem] md:box-border md:flex md:h-dvh md:max-h-dvh md:flex-col md:py-0 md:pt-20 md:pb-8"
+      className="py-12 pb-28 bg-background w-full overflow-hidden scroll-mt-24 lg:scroll-mt-28 md:box-border md:flex md:h-dvh md:max-h-dvh md:flex-col md:py-0 md:pt-20 md:pb-8"
       ref={ref}
     >
       <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-6 md:h-full md:min-h-0 md:flex-1 md:grid-cols-2 md:items-stretch md:gap-10">
