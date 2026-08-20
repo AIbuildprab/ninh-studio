@@ -6,7 +6,7 @@ export const burnaby: SeoArticle = {
   kind: "area",
   title: "Photography studio for Burnaby clients | Ninh Studio Joyce Street",
   description:
-    "Burnaby clients book portraits, weddings, hair & makeup, and studio rental at 5530 Joyce Street — one Expo Line stop west of Metrotown at Joyce-Collingwood SkyTrain.",
+    "Burnaby clients book portraits, weddings, hair & makeup, and studio rental at 5530 Joyce Street — two Expo Line stops west of Metrotown at Joyce-Collingwood SkyTrain.",
   h1: "Photography studio Burnaby clients reach on the Expo Line",
   eyebrow: "West on the SkyTrain",
   image: {
@@ -28,7 +28,7 @@ export const burnaby: SeoArticle = {
   body: [
     {
       type: "p",
-      text: "Burnaby and Vancouver share a border that looks arbitrary on a map and very real on a commute. Metrotown, Boundary Road, and Central Park sit on one side; Joyce-Collingwood and Collingwood sit on the other. Ninh Studio is at 5530 Joyce Street, Vancouver BC V5R 4H6 — not in Burnaby, and we will not pretend otherwise. What we will say plainly is that a large share of our clients live in Burnaby, take the Expo Line one stop west from Metrotown to Joyce-Collingwood, and walk about 650 metres to the studio door. For many Burnaby residents, that is faster and cheaper than driving to a downtown photography studio and fighting for parking.",
+      text: "Burnaby and Vancouver share a border that looks arbitrary on a map and very real on a commute. Metrotown, Boundary Road, and Central Park sit on one side; Joyce-Collingwood and Collingwood sit on the other. Ninh Studio is at 5530 Joyce Street, Vancouver BC V5R 4H6 — not in Burnaby, and we will not pretend otherwise. What we will say plainly is that a large share of our clients live in Burnaby, take the Expo Line two stops west from Metrotown to Joyce-Collingwood (Patterson is in between), and walk about 650 metres to the studio door. For many Burnaby residents, that is faster and cheaper than driving to a downtown photography studio and fighting for parking.",
     },
     {
       type: "p",
@@ -58,7 +58,7 @@ export const burnaby: SeoArticle = {
         [
           "Metrotown Station",
           "Expo Line westbound → Joyce-Collingwood + walk",
-          "~15–20 min total (1 SkyTrain stop + ~650 m walk)",
+          "~15–20 min total (2 SkyTrain stops + ~650 m walk)",
         ],
         [
           "Boundary & Kingsway",
@@ -119,7 +119,7 @@ export const burnaby: SeoArticle = {
     },
     {
       type: "p",
-      text: "Burnaby clients fall into two loose camps: SkyTrain commuters from Metrotown and Metrotown-adjacent towers who treat Joyce-Collingwood as the next stop west, and families along Boundary and Kingsway who drive five to fifteen minutes when strollers and gear make the train impractical. Both camps mention the same frustration with downtown studios — parking cost, loading zones, and the feeling that you are paying rent on someone else’s view. Joyce Street trades that for a ground-level door, two parking spots, and a room where the clock is not ticking for the client after you.",
+      text: "Burnaby clients fall into two loose camps: SkyTrain commuters from Metrotown and Metrotown-adjacent towers who treat Joyce-Collingwood as two stops west (after Patterson), and families along Boundary and Kingsway who drive five to fifteen minutes when strollers and gear make the train impractical. Both camps mention the same frustration with downtown studios — parking cost, loading zones, and the feeling that you are paying rent on someone else’s view. Joyce Street trades that for a ground-level door, two parking spots, and a room where the clock is not ticking for the client after you.",
     },
     {
       type: "p",
@@ -131,7 +131,7 @@ export const burnaby: SeoArticle = {
     },
     {
       type: "p",
-      text: "If you live near Metrotown, SkyTrain is often the sanest choice — one stop, predictable timing, no Metrotown parkade fee. Driving from central Burnaby off-peak is usually under fifteen minutes via Kingsway or Boundary. Rush hour across the border can stretch that; we suggest padding time or taking the train. Cyclists from Central Park follow Joyce Street bike lanes toward the studio in roughly ten minutes. We will not quote fantasy travel times. Ask when you book and we will tell you what clients from your part of Burnaby typically plan.",
+      text: "If you live near Metrotown, SkyTrain is often the sanest choice — two stops, predictable timing, no Metrotown parkade fee. Driving from central Burnaby off-peak is usually under fifteen minutes via Kingsway or Boundary. Rush hour across the border can stretch that; we suggest padding time or taking the train. Cyclists from Central Park follow Joyce Street bike lanes toward the studio in roughly ten minutes. We will not quote fantasy travel times. Ask when you book and we will tell you what clients from your part of Burnaby typically plan.",
     },
     {
       type: "h2",
@@ -174,13 +174,13 @@ export const burnaby: SeoArticle = {
       id: "by-address",
       question: "Is Ninh Studio located in Burnaby?",
       answer:
-        "No. The studio is at 5530 Joyce Street, Vancouver BC V5R 4H6, one Expo Line stop west of Metrotown. Many Burnaby clients SkyTrain to Joyce-Collingwood and walk about 650 metres.",
+        "No. The studio is at 5530 Joyce Street, Vancouver BC V5R 4H6, two Expo Line stops west of Metrotown (Patterson sits in between). Many Burnaby clients SkyTrain to Joyce-Collingwood and walk about 650 metres.",
     },
     {
       id: "by-metrotown",
       question: "How long from Metrotown Station to the studio?",
       answer:
-        "Typically fifteen to twenty minutes total: one westbound Expo Line stop to Joyce-Collingwood, then a 7–10 minute walk south on Joyce Street.",
+        "Typically fifteen to twenty minutes total: two westbound Expo Line stops to Joyce-Collingwood, then a 7–10 minute walk south on Joyce Street.",
     },
     {
       id: "by-fake",

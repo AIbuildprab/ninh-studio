@@ -163,7 +163,7 @@ export const joyceCollingwood: SeoArticle = {
     },
     {
       type: "p",
-      text: "From Collingwood south of Kingsway, many clients walk in under fifteen minutes. From the north side of the neighbourhood near Norquay Park, a bus down Joyce or a short drive is typical. From Metrotown, the Expo Line is often faster than parking downtown — one stop westbound to Joyce-Collingwood, then the walk. We will not pretend we are closer than we are. We will tell you the 650 metre SkyTrain walk is real, and that for most Collingwood residents the studio is closer than any Gastown warehouse with a Vancouver postal code.",
+      text: "From Collingwood south of Kingsway, many clients walk in under fifteen minutes. From the north side of the neighbourhood near Norquay Park, a bus down Joyce or a short drive is typical. From Metrotown, the Expo Line is often faster than parking downtown — two stops westbound to Joyce-Collingwood (Patterson is in between), then the walk. We will not pretend we are closer than we are. We will tell you the 650 metre SkyTrain walk is real, and that for most Collingwood residents the studio is closer than any Gastown warehouse with a Vancouver postal code.",
     },
     {
       type: "p",

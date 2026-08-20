@@ -63,7 +63,7 @@ export const areasHub: SeoArticle = {
         ],
         [
           "[Burnaby](/areas-we-serve/burnaby)",
-          "Expo Line eastbound to Joyce-Collingwood, or drive from Metrotown / Boundary",
+          "Expo Line westbound to Joyce-Collingwood, or drive from Metrotown / Boundary",
           "One SkyTrain line, short walk — no Burnaby studio to confuse the address",
         ],
         [
@@ -108,7 +108,7 @@ export const areasHub: SeoArticle = {
     },
     {
       type: "p",
-      text: "Burnaby searches for “photography studio Burnaby” often assume a Metrotown address or a unit near Brentwood. Ninh Studio does not operate there. What Burnaby clients get instead is a straightforward SkyTrain ride: Expo Line eastbound to Joyce-Collingwood, then the walk south. From Metrotown that is typically well under half an hour on the train plus the short walk, depending on when you board. Driving from central Burnaby via Kingsway or Boundary is also common when you are hauling wardrobe, strollers, or gear.",
+      text: "Burnaby searches for “photography studio Burnaby” often assume a Metrotown address or a unit near Brentwood. Ninh Studio does not operate there. What Burnaby clients get instead is a straightforward SkyTrain ride: Expo Line westbound to Joyce-Collingwood, then the walk south. From Metrotown that is typically well under half an hour on the train plus the short walk, depending on when you board. Driving from central Burnaby via Kingsway or Boundary is also common when you are hauling wardrobe, strollers, or gear.",
     },
     {
       type: "p",
@@ -120,7 +120,7 @@ export const areasHub: SeoArticle = {
     },
     {
       type: "p",
-      text: "Downtown Vancouver has plenty of photography options and almost none of them come with easy parking. That is the real reason downtown clients look east on the Expo Line. From Waterfront, Burrard, or City Centre, you board westbound Expo service toward Joyce-Collingwood — one line, no transfer for the standard trip. Total time is often competitive with driving once you account for finding a stall, paying for it, and walking from a parkade to a Gastown or Yaletown studio door.",
+      text: "Downtown Vancouver has plenty of photography options and almost none of them come with easy parking. That is the real reason downtown clients look east on the Expo Line. From Waterfront, Burrard, or City Centre, you board eastbound Expo service toward Joyce-Collingwood — one line, no transfer for the standard trip. Total time is often competitive with driving once you account for finding a stall, paying for it, and walking from a parkade to a Gastown or Yaletown studio door.",
     },
     {
       type: "p",

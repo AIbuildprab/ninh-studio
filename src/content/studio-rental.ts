@@ -116,7 +116,7 @@ export const studioRental: SeoArticle = {
     },
     {
       type: "p",
-      text: "The studio is in South Renfrew-Collingwood on Joyce Street — about 650 metres from Joyce-Collingwood SkyTrain on the Expo Line. Clients from [New Westminster](/areas-we-serve/new-westminster) westbound and Burnaby eastbound often train in faster than they park downtown. Two free on-site parking spots plus street parking help when you are hauling cases.",
+      text: "The studio is in South Renfrew-Collingwood on Joyce Street — about 650 metres from Joyce-Collingwood SkyTrain on the Expo Line. Clients from [New Westminster](/areas-we-serve/new-westminster) and [Burnaby](/areas-we-serve/burnaby) often train in westbound faster than they park downtown. Two free on-site parking spots plus street parking help when you are hauling cases.",
     },
     {
       type: "p",
