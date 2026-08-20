@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { cn } from "@/lib/utils";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
@@ -29,7 +28,7 @@ export function AboutSection() {
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               objectPosition={site.aboutImage.objectPosition}
-              className={cn("object-cover", site.aboutImage.className)}
+              className="object-cover"
             />
             <div className="absolute inset-0 border border-black/5 rounded-sm pointer-events-none" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-4 pb-3.5 pt-12 pointer-events-none">
