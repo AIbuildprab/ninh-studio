@@ -68,11 +68,11 @@ export function HeroSection() {
         </div>
 
         <h1 className="animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100 fill-mode-both font-display font-medium leading-[1.08] text-white mb-4">
-          <span className="block text-5xl md:text-[4.75rem] tracking-tight">A photography studio</span>
-          <span className="block text-5xl md:text-[4.75rem] tracking-tight italic text-white/90">
-            made to be used.
-          </span>
+          <span className="block text-5xl md:text-[4.75rem] tracking-tight">{site.seo.h1}</span>
         </h1>
+        <p className="animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100 fill-mode-both font-display italic text-2xl md:text-4xl tracking-tight text-white/90 mb-4">
+          A photography studio made to be used.
+        </p>
 
         <div className="animate-in fade-in duration-700 delay-200 fill-mode-both h-8 flex items-center justify-center mb-6">
           <span
@@ -101,7 +101,7 @@ export function HeroSection() {
             variant="outline"
             className="border-white/60 text-white hover:bg-white hover:text-foreground bg-white/5 backdrop-blur-sm min-w-[200px] tracking-wide text-sm font-semibold"
           >
-            <a href="#pricing">Rent the Studio</a>
+            <a href="/#pricing">Rent the Studio</a>
           </Button>
         </div>
 
@@ -119,7 +119,7 @@ export function HeroSection() {
       </div>
 
       <a
-        href="#about"
+        href="/#about"
         aria-label="Scroll down"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors group"
       >

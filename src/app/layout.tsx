@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
 import { Providers } from "@/components/providers";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const dmSans = localFont({
@@ -32,13 +33,13 @@ const cormorant = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ninhstudio.ca"),
-  title: "Ninh Studio | Photography Studio in East Vancouver",
+  title: site.seo.title,
   description:
     "Photography studio on Joyce Street in East Vancouver. Portraits, wedding photography, hair & makeup, and studio rental from $60/hr. Steps from Joyce-Collingwood SkyTrain.",
   robots: { index: true, follow: true },
   icons: { icon: "/icon.svg" },
   openGraph: {
-    title: "Ninh Studio",
+    title: site.seo.title,
     description:
       "Photography studio on Joyce Street in East Vancouver. Portraits, weddings, hair & makeup, and studio rental.",
     type: "website",
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ninh Studio",
+    title: site.seo.title,
     description:
       "Photography studio on Joyce Street in East Vancouver. Portraits, weddings, hair & makeup, and studio rental.",
   },

@@ -13,31 +13,37 @@ const services = [
     desc: "LinkedIn, personal branding, and portraits with direction so you don’t have to guess what to do with your face.",
     image: site.serviceImages.headshots,
     tag: "Photography",
+    href: "/services/portrait-photography",
   },
   {
     title: "Wedding Photography",
     desc: "Wedding-day coverage with the same unhurried pace as the studio — from getting ready through the last dance.",
     image: site.serviceImages.wedding,
+    href: "/services/wedding-photography",
   },
   {
     title: "Hair & Makeup",
     desc: "Bridal trials and wedding-day hair & makeup with Michelle. Notes and reference photos so the look holds.",
     image: site.serviceImages.hmu,
+    href: "/services/hair-and-makeup",
   },
   {
     title: "Baby Photography",
     desc: "Newborn and milestone portraits. Soft, unhurried, at your baby’s pace.",
     image: site.serviceImages.baby,
+    href: "/services/baby-photography",
   },
   {
     title: "Boudoir Photography",
     desc: "Private, artistic sessions in-studio. A gift to yourself, or someone special.",
     image: site.serviceImages.boudoir,
+    href: "/services/boudoir-photography",
   },
   {
     title: "Commercial & Events",
     desc: "Products, teams, parties, and on-location coverage when the work needs to leave Joyce Street.",
     image: site.serviceImages.commercial,
+    href: "/services/commercial-photography",
   },
 ];
 
@@ -47,7 +53,7 @@ export function ServicesSection() {
   return (
     <section
       id="sessions"
-      className="py-[60px] lg:py-[80px] bg-secondary w-full scroll-mt-24 lg:scroll-mt-28"
+      className="py-12 pb-28 lg:py-[80px] lg:pb-[80px] bg-secondary w-full scroll-mt-24 lg:scroll-mt-28"
       ref={ref}
     >
       <div className="max-w-[1180px] mx-auto px-6">
@@ -57,11 +63,15 @@ export function ServicesSection() {
           }`}
         >
           <SectionEyebrow className="text-center">What We Do</SectionEyebrow>
-          <h2 className="font-display font-medium text-4xl lg:text-5xl text-foreground mb-4">
-            Photography, then makeup &amp; weddings.
+          <h2 className="font-display font-medium text-[2rem] leading-[1.15] lg:text-5xl text-foreground mb-4">
+            {site.seo.h2}
           </h2>
-          <p className="text-secondary-foreground text-lg">
-            Sessions in the studio, hair and makeup in-house, and the space itself when you need to rent it.
+          <p className="text-secondary-foreground text-base lg:text-lg">
+            Sessions in the studio, hair and makeup in-house, and the space itself when you need to rent it.{" "}
+            <a href="/services" className="text-accent hover:underline">
+              Read the full services guide
+            </a>
+            .
           </p>
         </div>
 
@@ -69,7 +79,7 @@ export function ServicesSection() {
           {services.map((service, i) => (
             <a
               key={service.title}
-              href={site.links.session}
+              href={service.href}
               className={`group relative overflow-hidden rounded-sm aspect-[4/5] text-left transition-all duration-700 ease-out focus:outline-none ${
                 isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
@@ -95,14 +105,14 @@ export function ServicesSection() {
                 </div>
               )}
 
-              <div className="absolute bottom-0 left-0 right-0 p-6 flex flex-col">
-                <h3 className="font-display font-medium text-2xl text-white mb-2 leading-tight">
+              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 flex flex-col">
+                <h3 className="font-display font-medium text-xl md:text-2xl text-white mb-2 leading-tight">
                   {service.title}
                 </h3>
                 <p className="text-white/65 text-sm leading-relaxed group-hover:text-white/85 transition-colors duration-300">
                   {service.desc}
                 </p>
-                <div className="mt-4 flex items-center gap-1.5 text-accent text-xs font-semibold uppercase tracking-wider opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                <div className="mt-3 md:mt-4 flex items-center gap-1.5 text-accent text-xs font-semibold uppercase tracking-wider opacity-100 translate-y-0 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 transition-all duration-300">
                   Inquire
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="inline-block">
                     <path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

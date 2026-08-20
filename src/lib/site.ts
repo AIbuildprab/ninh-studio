@@ -29,7 +29,13 @@ export const site = {
   mapsUrl:
     "https://www.google.com/maps/place/Ninh+Studio/@49.233558,-123.036216,17z/data=!4m6!3m5!1s0x548677015ada9d8f:0x1a2e0d2059f88131!8m2!3d49.233558!4d-123.036216!16s%2Fg%2F11vq2nqxn7",
   mapsEmbedUrl:
-    "https://maps.google.com/maps?q=49.233558,-123.036216&z=16&output=embed",
+    "https://maps.google.com/maps?q=Ninh+Studio,+5530+Joyce+Street,+Vancouver,+BC&z=16&output=embed",
+  seo: {
+    title:
+      "BEST Photography Studio Vancouver - if you're looking for Portrait Photography near me or Wedding Photography, Hair & Makeup and Photo Studio Rental near me - Ninh Studio is the place to be",
+    h1: "Photography Studio Vancouver",
+    h2: "Portrait Photography, Wedding Photography, Hair & Makeup and Studio Rental",
+  },
   tagvenueUrl:
     "https://www.tagvenue.com/ca/rooms/vancouver/75697/ninh-studio/photo-studio",
   address: {
@@ -92,10 +98,9 @@ export const site = {
     ],
   },
   aboutImage: {
-    src: photos.headshot,
-    alt: "Michelle at Ninh Studio",
-    objectPosition: "50% 18%",
-    className: "photo-warm",
+    src: "/images/space-5.avif",
+    alt: "Makeup station at Ninh Studio on Joyce Street",
+    objectPosition: "50% 40%",
   } satisfies SiteImage,
   galleryItems: [
     {
@@ -228,17 +233,17 @@ export const site = {
     },
   ] as const satisfies readonly SiteImage[],
   nav: [
-    { label: "About", href: "#about" },
-    { label: "Sessions", href: "#sessions" },
-    { label: "Studio", href: "#studio" },
-    { label: "Gallery", href: "#gallery" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "/#about" },
+    { label: "Sessions", href: "/services" },
+    { label: "Studio", href: "/#studio" },
+    { label: "Areas", href: "/areas-we-serve" },
+    { label: "Gallery", href: "/#gallery" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "Contact", href: "/#contact" },
   ],
   links: {
-    contact: "#contact",
-    session: "#contact",
+    contact: "/#contact",
+    session: "/#contact",
     rental: "https://www.tagvenue.com/ca/rooms/vancouver/75697/ninh-studio/photo-studio",
   },
 } as const;

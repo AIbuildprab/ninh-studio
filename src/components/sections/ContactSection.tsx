@@ -116,6 +116,7 @@ export function ContactSection() {
                   <div className="text-sm">
                     <p className="font-bold text-foreground">Address</p>
                     <p className="text-secondary-foreground mt-1">
+                      {site.name}<br />
                       {site.address.line1}<br />
                       {site.address.city}, {site.address.region} {site.address.postal}
                     </p>
@@ -178,6 +179,27 @@ export function ContactSection() {
                 <div className="text-sm mt-4 p-3 bg-secondary rounded text-secondary-foreground text-xs">
                   <p className="font-medium text-foreground mb-1">Transit & Parking</p>
                   <p>Minutes from Joyce-Collingwood Station. 2 free on-site spaces + free street parking.</p>
+                </div>
+
+                <div className="text-sm">
+                  <p className="font-bold text-foreground mb-2">Areas we serve</p>
+                  <ul className="space-y-1 text-secondary-foreground">
+                    <li><a className="text-accent hover:underline" href="/areas-we-serve/joyce-collingwood">Joyce-Collingwood</a></li>
+                    <li><a className="text-accent hover:underline" href="/areas-we-serve/east-vancouver">East Vancouver</a></li>
+                    <li><a className="text-accent hover:underline" href="/areas-we-serve/burnaby">Burnaby</a></li>
+                    <li><a className="text-accent hover:underline" href="/areas-we-serve/downtown-vancouver">Downtown Vancouver</a></li>
+                    <li><a className="text-accent hover:underline" href="/areas-we-serve/new-westminster">New Westminster</a></li>
+                  </ul>
+                </div>
+
+                <div className="text-sm">
+                  <p className="font-bold text-foreground mb-2">Our main services</p>
+                  <ul className="space-y-1 text-secondary-foreground">
+                    <li><a className="text-accent hover:underline" href="/services/portrait-photography">Portrait photography</a></li>
+                    <li><a className="text-accent hover:underline" href="/services/wedding-photography">Wedding photography</a></li>
+                    <li><a className="text-accent hover:underline" href="/services/hair-and-makeup">Hair &amp; makeup</a></li>
+                    <li><a className="text-accent hover:underline" href="/services/studio-rental">Studio rental</a></li>
+                  </ul>
                 </div>
 
                 <Button asChild variant="outline" className="w-full">

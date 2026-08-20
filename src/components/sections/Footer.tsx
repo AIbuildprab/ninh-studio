@@ -4,6 +4,8 @@ import { Instagram, MapPin, Mail, Phone } from "lucide-react";
 
 import { Logo } from "@/components/Logo";
 
+import { coreServices, moreServices } from "@/lib/catalog";
+
 import { site } from "@/lib/site";
 
 
@@ -30,7 +32,7 @@ export function Footer() {
 
           <div className="md:col-span-5">
 
-            <a href="#" aria-label={site.name} className="inline-block mb-6 group">
+            <a href="/" aria-label={site.name} className="inline-block mb-6 group">
 
               <Logo variant="light" size="lg" />
 
@@ -90,13 +92,13 @@ export function Footer() {
 
             <ul className="space-y-3">
 
-              {site.sessionTypes.slice(0, 6).map((s) => (
+              {[...coreServices, ...moreServices].map((s) => (
 
-                <li key={s}>
+                <li key={s.slug}>
 
-                  <a href="#sessions" className="text-gold-muted/50 hover:text-gold transition-colors text-sm text-left">
+                  <a href={s.path} className="text-gold-muted/50 hover:text-gold transition-colors text-sm text-left">
 
-                    {s}
+                    {s.name}
 
                   </a>
 
@@ -130,7 +132,7 @@ export function Footer() {
 
                 <li>
 
-                  <a href="#pricing" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
+                  <a href="/#pricing" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
 
                     Rent the Studio
 
@@ -140,7 +142,7 @@ export function Footer() {
 
                 <li>
 
-                  <a href="#gallery" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
+                  <a href="/#gallery" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
 
                     Gallery
 
@@ -150,7 +152,7 @@ export function Footer() {
 
                 <li>
 
-                  <a href="#pricing" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
+                  <a href="/#pricing" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
 
                     Pricing
 
@@ -160,7 +162,17 @@ export function Footer() {
 
                 <li>
 
-                  <a href="#faq" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
+                  <a href="/areas-we-serve" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
+
+                    Areas we serve
+
+                  </a>
+
+                </li>
+
+                <li>
+
+                  <a href="/#faq" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
 
                     FAQ
 
@@ -170,7 +182,7 @@ export function Footer() {
 
                 <li>
 
-                  <a href="#contact" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
+                  <a href="/#contact" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
 
                     Contact
 
@@ -189,6 +201,8 @@ export function Footer() {
               <h4 className="brand-heading mb-5">Visit Us</h4>
 
               <address className="not-italic space-y-2 text-gold-muted/50 text-sm">
+
+                <p className="text-gold-muted/80 font-medium">{site.name}</p>
 
                 <p>{site.address.line1}</p>
 

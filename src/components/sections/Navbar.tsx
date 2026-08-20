@@ -1,22 +1,30 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/Logo";
 import { site } from "@/lib/site";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const overlay = pathname === "/";
+  const [scrolled, setScrolled] = useState(!overlay);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (!overlay) {
+      setScrolled(true);
+      return;
+    }
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [overlay]);
 
   useEffect(() => {
     if (!mobileMenuOpen) {
@@ -51,7 +59,7 @@ export function Navbar() {
         }`}
       >
         <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
-          <a href="#" aria-label={site.name} className="shrink-0">
+          <a href="/" aria-label={site.name} className="shrink-0">
             <Logo variant={scrolled ? "dark" : "light"} size={scrolled ? "sm" : "md"} />
           </a>
 
@@ -87,7 +95,9 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-[60] bg-background flex flex-col p-6 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
           <div className="flex justify-between items-center mb-12">
-            <Logo variant="dark" size="md" />
+            <a href="/" onClick={closeMenu} aria-label={site.name}>
+              <Logo variant="dark" size="md" />
+            </a>
             <button onClick={closeMenu} aria-label="Close menu">
               <X className="text-foreground h-8 w-8" />
             </button>

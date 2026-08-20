@@ -46,12 +46,12 @@ export function StudioSection() {
   return (
     <section
       id="studio"
-      className="py-[60px] bg-background w-full overflow-hidden lg:scroll-mt-[-5.5rem] lg:box-border lg:flex lg:h-dvh lg:max-h-dvh lg:flex-col lg:py-0 lg:pt-20 lg:pb-8"
+      className="py-12 pb-28 bg-background w-full overflow-hidden lg:scroll-mt-[-5.5rem] lg:box-border lg:flex lg:h-dvh lg:max-h-dvh lg:flex-col lg:py-0 lg:pt-20 lg:pb-8"
       ref={ref}
     >
-      <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-12 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-2 lg:items-stretch lg:gap-12">
+      <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-6 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-2 lg:items-stretch lg:gap-12">
         <div
-          className={`relative h-[420px] rounded-sm overflow-hidden shadow-lg transition-all duration-700 ease-out lg:h-full lg:min-h-0 ${
+          className={`order-2 relative aspect-[4/3] rounded-sm overflow-hidden shadow-lg transition-all duration-700 ease-out lg:order-1 lg:aspect-auto lg:h-full lg:min-h-0 ${
             isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
           }`}
         >
@@ -65,14 +65,14 @@ export function StudioSection() {
           <div className="absolute inset-0 border border-black/5 rounded-sm pointer-events-none" />
         </div>
 
-        <div className="flex flex-col justify-center lg:h-full lg:min-h-0">
+        <div className="contents lg:order-2 lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:justify-center">
           <div
-            className={`mb-8 lg:mb-6 transition-all duration-700 delay-200 ease-out ${
+            className={`order-1 mb-0 lg:mb-6 transition-all duration-700 delay-200 ease-out ${
               isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
             }`}
           >
-            <SectionEyebrow className="lg:mb-3">The Space</SectionEyebrow>
-            <h2 className="font-display font-medium text-4xl lg:text-[2.5rem] text-foreground mb-3 leading-tight">
+            <SectionEyebrow className="mb-3">The Space</SectionEyebrow>
+            <h2 className="font-display font-medium text-[2rem] leading-[1.15] lg:text-[2.5rem] text-foreground mb-3">
               Bright, equipped, and easy to get to.
             </h2>
             <p className="text-secondary-foreground text-base lg:text-[15px] leading-relaxed">
@@ -80,7 +80,7 @@ export function StudioSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 lg:gap-y-5 mb-8 lg:mb-0">
+          <div className="order-3 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 lg:gap-y-5">
             {features.map((feature, i) => (
               <div
                 key={feature.title}
@@ -100,21 +100,6 @@ export function StudioSection() {
                 </p>
               </div>
             ))}
-          </div>
-
-          <div
-            className={`relative mt-8 h-48 w-full sm:w-2/3 rounded-sm overflow-hidden shadow-md transition-all duration-700 delay-700 ease-out lg:hidden ${
-              isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-            }`}
-          >
-            <PlaceholderImage
-              src={site.images.studioDetail}
-              alt="Studio makeup station"
-              fill
-              sizes="(max-width: 640px) 100vw, 33vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 border border-black/5 rounded-sm pointer-events-none" />
           </div>
         </div>
       </div>

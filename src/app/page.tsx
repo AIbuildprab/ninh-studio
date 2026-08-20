@@ -13,10 +13,14 @@ import { InstagramSection } from "@/components/sections/InstagramSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { homepageSchemaGraph } from "@/lib/schema";
+import { HomeAuthorityLinks } from "@/components/sections/HomeAuthorityLinks";
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd data={homepageSchemaGraph()} />
       <ScrollProgress />
       <FloatingBookNow />
       <Navbar />
@@ -30,6 +34,7 @@ export default function HomePage() {
         <TestimonialsSection />
         <PricingSection />
         <InstagramSection />
+        <HomeAuthorityLinks />
         <FaqSection />
         <ContactSection />
         <Footer />
