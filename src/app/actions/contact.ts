@@ -1,6 +1,10 @@
 "use server";
 
 import { z } from "zod";
+import {
+  sessionInquiryConfirmationEmail,
+  sessionInquiryStudioEmail,
+} from "@/lib/emails/session-inquiry";
 import { site } from "@/lib/site";
 
 const formSchema = z.object({
@@ -17,6 +21,8 @@ export type ContactFormValues = z.infer<typeof formSchema>;
 export type ContactResult =
   | { ok: true }
   | { ok: false; error: string; mailto?: string };
+
+const DEFAULT_FROM = "Ninh Studio <hello@ninhstudio.ca>";
 
 function buildMailto(values: ContactFormValues) {
   const to = process.env.CONTACT_TO_EMAIL ?? site.email;
@@ -36,6 +42,34 @@ function buildMailto(values: ContactFormValues) {
   return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
+async function sendResendEmail(
+  apiKey: string,
+  payload: {
+    from: string;
+    to: string[];
+    reply_to?: string;
+    subject: string;
+    html: string;
+    text: string;
+  },
+) {
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    const detail = await res.text();
+    console.error("Resend send failed", res.status, detail.slice(0, 500));
+  }
+
+  return res;
+}
+
 export async function submitSessionInquiry(
   raw: unknown,
 ): Promise<ContactResult> {
@@ -47,48 +81,47 @@ export async function submitSessionInquiry(
 
   const values = parsed.data;
   const to = process.env.CONTACT_TO_EMAIL ?? site.email;
+  const from = process.env.RESEND_FROM_EMAIL ?? DEFAULT_FROM;
   const apiKey = process.env.RESEND_API_KEY;
 
-  if (apiKey) {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: `Ninh Studio Website <noreply@${to.split("@")[1] ?? "ninhstudio.ca"}>`,
-        to: [to],
-        reply_to: values.email,
-        subject: `Session inquiry: ${values.sessionType} — ${values.name}`,
-        text: [
-          `Name: ${values.name}`,
-          `Email: ${values.email}`,
-          `Phone: ${values.phone}`,
-          `Session: ${values.sessionType}`,
-          values.preferredDate ? `Preferred date: ${values.preferredDate}` : null,
-          "",
-          values.message,
-        ]
-          .filter(Boolean)
-          .join("\n"),
-      }),
-    });
-
-    if (!res.ok) {
-      return {
-        ok: false,
-        error: `Could not send automatically. Email ${site.email} or call ${site.phoneDisplay}.`,
-        mailto: buildMailto(values),
-      };
-    }
-
-    return { ok: true };
+  if (!apiKey) {
+    return {
+      ok: false,
+      error: "Opening your email app to send this inquiry.",
+      mailto: buildMailto(values),
+    };
   }
 
-  return {
-    ok: false,
-    error: "Opening your email app to send this inquiry.",
-    mailto: buildMailto(values),
-  };
+  const studio = sessionInquiryStudioEmail(values);
+  const studioRes = await sendResendEmail(apiKey, {
+    from,
+    to: [to],
+    reply_to: values.email,
+    subject: studio.subject,
+    html: studio.html,
+    text: studio.text,
+  });
+
+  if (!studioRes.ok) {
+    return {
+      ok: false,
+      error: `Could not send automatically. Email ${site.email} or call ${site.phoneDisplay}.`,
+      mailto: buildMailto(values),
+    };
+  }
+
+  const confirmation = sessionInquiryConfirmationEmail(values);
+  const confirmRes = await sendResendEmail(apiKey, {
+    from,
+    to: [values.email],
+    subject: confirmation.subject,
+    html: confirmation.html,
+    text: confirmation.text,
+  });
+
+  if (!confirmRes.ok) {
+    console.error("Resend confirmation email failed; studio inquiry was sent.");
+  }
+
+  return { ok: true };
 }
