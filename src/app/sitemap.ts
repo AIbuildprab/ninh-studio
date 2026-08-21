@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { areaArticles, serviceArticles } from "@/content/index";
+import { siteOrigin } from "@/lib/seo";
 
-const origin = "https://ninhstudio.ca";
+const origin = siteOrigin;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { PageShell } from "@/components/PageShell";
 import { SeoArticlePage } from "@/components/SeoArticlePage";
 import { serviceArticles } from "@/content/index";
+import { articleMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -14,15 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = serviceArticles[slug];
   if (!article) return {};
-  return {
-    title: article.title,
-    description: article.description,
-    openGraph: {
-      title: article.title,
-      description: article.description,
-      type: "article",
-    },
-  };
+  return articleMetadata(article);
 }
 
 export default async function ServicePage({ params }: Props) {

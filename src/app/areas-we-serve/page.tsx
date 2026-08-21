@@ -2,17 +2,10 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/PageShell";
 import { SeoArticlePage } from "@/components/SeoArticlePage";
 import { areasHub } from "@/content/index";
+import { articleMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: areasHub.title,
-  description: areasHub.description,
-  openGraph: {
-    title: areasHub.title,
-    description: areasHub.description,
-    type: "website",
-  },
-};
+export const metadata: Metadata = articleMetadata(areasHub);
 
 export default function AreasWeServePage() {
   return (

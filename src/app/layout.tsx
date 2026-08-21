@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
 import { Providers } from "@/components/providers";
 import { site } from "@/lib/site";
+import { pageMetadata, siteOrigin } from "@/lib/seo";
 import "./globals.css";
 
 const dmSans = localFont({
@@ -31,25 +32,43 @@ const cormorant = localFont({
   variable: "--font-cormorant",
 });
 
+const homeDescription =
+  "Photography studio on Joyce Street in East Vancouver. Portraits, wedding photography, hair & makeup, and studio rental from $60/hr. Steps from Joyce-Collingwood SkyTrain.";
+
+export const viewport: Viewport = {
+  themeColor: "#f7f4ef",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ninhstudio.ca"),
-  title: site.seo.title,
-  description:
-    "Photography studio on Joyce Street in East Vancouver. Portraits, wedding photography, hair & makeup, and studio rental from $60/hr. Steps from Joyce-Collingwood SkyTrain.",
-  robots: { index: true, follow: true },
+  metadataBase: new URL(siteOrigin),
+  applicationName: site.name,
+  authors: [{ name: site.owner, url: siteOrigin }],
+  creator: site.name,
+  publisher: site.name,
+  category: "Photography studio",
+  keywords: [
+    "photography studio Vancouver",
+    "portrait photography Vancouver",
+    "wedding photography Vancouver",
+    "hair and makeup Vancouver",
+    "photo studio rental Vancouver",
+    "Joyce-Collingwood photography",
+    "East Vancouver photography studio",
+  ],
   icons: { icon: "/icon.svg" },
-  openGraph: {
+  formatDetection: { telephone: true, email: true, address: true },
+  ...pageMetadata({
     title: site.seo.title,
-    description:
-      "Photography studio on Joyce Street in East Vancouver. Portraits, weddings, hair & makeup, and studio rental.",
-    type: "website",
-    images: ["/images/Dolphin_Radar_20260818002150.png"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: site.seo.title,
-    description:
-      "Photography studio on Joyce Street in East Vancouver. Portraits, weddings, hair & makeup, and studio rental.",
+    description: homeDescription,
+    path: "/",
+  }),
+  other: {
+    "geo.region": "CA-BC",
+    "geo.placename": "Vancouver",
+    "geo.position": `${site.geo.lat};${site.geo.lng}`,
+    ICBM: `${site.geo.lat}, ${site.geo.lng}`,
   },
 };
 

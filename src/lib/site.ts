@@ -18,6 +18,7 @@ const photos = {
 
 export const site = {
   name: "Ninh Studio",
+  origin: "https://ninhstudio.ca",
   tagline: "Photography Studio · East Vancouver",
   owner: "Michelle",
   email: "hello@ninhstudio.ca",
