@@ -103,9 +103,9 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
           <div
-            className={`flex flex-col gap-12 transition-all duration-700 delay-200 ease-out ${
+            className={`transition-all duration-700 delay-200 ease-out ${
               isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
             }`}
           >
@@ -209,14 +209,31 @@ export function ContactSection() {
                 </Button>
               </div>
             </div>
+          </div>
 
-            <div className="bg-white p-6 rounded-xl border border-border shadow-sm">
+          <div
+            className={`h-[320px] md:h-[380px] lg:h-[420px] lg:self-start rounded-xl overflow-hidden shadow-md transition-all duration-700 delay-400 ease-out ${
+              isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
+            }`}
+          >
+            <iframe
+              src={site.mapsEmbedUrl}
+              className="w-full h-full border-0"
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={`${site.name} location`}
+            />
+          </div>
+
+          <div className="lg:col-span-2">
+            <div className="mx-auto w-full max-w-2xl bg-white p-6 md:p-8 rounded-xl border border-border shadow-sm">
               <h3 className="font-display font-medium text-xl mb-2">Book a session</h3>
               <p className="text-sm text-secondary-foreground mb-6">
                 Photography, weddings, or hair & makeup. Studio rentals use the hourly form in Pricing.
               </p>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <FormField
                     control={form.control}
                     name="name"
@@ -297,7 +314,7 @@ export function ContactSection() {
                     control={form.control}
                     name="message"
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="sm:col-span-2">
                         <FormLabel>Message</FormLabel>
                         <FormControl>
                           <Textarea
@@ -313,28 +330,13 @@ export function ContactSection() {
                   <Button
                     type="submit"
                     disabled={form.formState.isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-2"
+                    className="sm:col-span-2 w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-2"
                   >
                     {form.formState.isSubmitting ? "Sending…" : "Send Message"}
                   </Button>
                 </form>
               </Form>
             </div>
-          </div>
-
-          <div
-            className={`h-[400px] lg:h-auto min-h-[500px] rounded-xl overflow-hidden shadow-md transition-all duration-700 delay-400 ease-out ${
-              isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
-            }`}
-          >
-            <iframe
-              src={site.mapsEmbedUrl}
-              className="w-full h-full border-0"
-              allowFullScreen={false}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`${site.name} location`}
-            />
           </div>
         </div>
       </div>
