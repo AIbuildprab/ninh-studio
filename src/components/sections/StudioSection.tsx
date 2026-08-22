@@ -46,12 +46,12 @@ export function StudioSection() {
   return (
     <section
       id="studio"
-      className="py-12 pb-28 bg-background w-full overflow-hidden scroll-mt-24 lg:scroll-mt-28 lg:box-border lg:flex lg:h-dvh lg:max-h-dvh lg:flex-col lg:py-0 lg:pt-20 lg:pb-8"
+      className="py-16 md:py-24 bg-background w-full overflow-hidden scroll-mt-24"
       ref={ref}
     >
-      <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-6 lg:h-full lg:min-h-0 lg:flex-1 lg:grid-cols-2 lg:items-stretch lg:gap-12">
+      <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center lg:gap-12">
         <div
-          className={`order-2 relative aspect-[4/3] rounded-sm overflow-hidden shadow-lg transition-all duration-700 ease-out lg:order-1 lg:aspect-auto lg:h-full lg:min-h-0 ${
+          className={`order-2 relative aspect-[4/5] overflow-hidden shadow-lg transition-all duration-700 ease-out lg:order-1 ${
             isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"
           }`}
         >
@@ -62,10 +62,10 @@ export function StudioSection() {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 border border-black/5 rounded-sm pointer-events-none" />
+          <div className="absolute inset-0 border border-black/5 pointer-events-none" />
         </div>
 
-        <div className="contents lg:order-2 lg:flex lg:h-full lg:min-h-0 lg:flex-col lg:justify-center">
+        <div className="contents lg:order-2 lg:block">
           <div
             className={`order-1 mb-0 lg:mb-6 transition-all duration-700 delay-200 ease-out ${
               isIntersecting ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"

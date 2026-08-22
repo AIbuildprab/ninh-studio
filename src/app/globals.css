@@ -355,6 +355,28 @@ button, [role="button"] {
   font-family: var(--font-cormorant), serif;
 }
 
+/* Lookbook CTAs — cream fill / gold ghost on photos */
+.lookbook-solid {
+  background: hsl(40 33% 97%);
+  border-radius: var(--radius);
+  color: hsl(var(--ink));
+}
+.lookbook-solid:hover {
+  background: hsl(var(--gold));
+  color: hsl(var(--ink));
+}
+
+.lookbook-ghost {
+  background: transparent;
+  border: 1px solid hsl(var(--gold) / 0.75);
+  border-radius: var(--radius);
+  color: hsl(var(--gold));
+}
+.lookbook-ghost:hover {
+  background: hsl(var(--gold));
+  color: hsl(var(--ink));
+}
+
 /* Logo-derived metallic gold (dark backgrounds) */
 .logo-gold {
   background: linear-gradient(

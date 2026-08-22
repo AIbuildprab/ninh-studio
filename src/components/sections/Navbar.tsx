@@ -1,30 +1,22 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Instagram, Menu, Phone, X } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { site } from "@/lib/site";
 
 export function Navbar() {
-  const pathname = usePathname();
-  const overlay = pathname === "/";
-  const [scrolled, setScrolled] = useState(!overlay);
+  const [compact, setCompact] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (!overlay) {
-      setScrolled(true);
-      return;
-    }
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setCompact(window.scrollY > 50);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [overlay]);
+  }, []);
 
   useEffect(() => {
     if (!mobileMenuOpen) {
@@ -52,54 +44,69 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-          scrolled
-            ? "bg-[hsl(40_33%_97%/0.92)] backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.06)] py-3"
-            : "bg-transparent py-5"
+        className={`fixed top-0 left-0 right-0 z-50 bg-ink/95 backdrop-blur-md border-b border-gold/10 transition-[padding] duration-300 ease-out ${
+          compact ? "py-2.5" : "py-3.5"
         }`}
       >
-        <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-[1180px] mx-auto px-6 flex items-center justify-between gap-4">
           <a href="/" aria-label={site.name} className="shrink-0">
-            <Logo variant={scrolled ? "dark" : "light"} size={scrolled ? "sm" : "md"} />
+            <Logo variant="light" size={compact ? "sm" : "md"} />
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
-            <div className="flex gap-7">
-              {site.nav.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm tracking-wide transition-colors hover:text-accent ${
-                    scrolled ? "text-foreground/80" : "text-white/85 hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-            <Button asChild className="font-medium tracking-wide bg-primary text-primary-foreground hover:bg-primary/90">
-              <a href={site.links.session}>Book Now</a>
-            </Button>
+          <div className="hidden lg:flex items-center gap-7">
+            {site.nav.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm tracking-wide text-gold/80 transition-colors hover:text-gold"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
-          <button
-            className="md:hidden text-2xl"
-            onClick={() => setMobileMenuOpen(true)}
-            aria-label="Open Menu"
-          >
-            <Menu className={scrolled ? "text-foreground" : "text-white"} />
-          </button>
+          <div className="flex items-center gap-2.5">
+            <a
+              href={site.phoneHref}
+              aria-label="Call Ninh Studio"
+              className="hidden sm:flex w-9 h-9 rounded-full border border-gold/25 items-center justify-center text-gold/80 hover:border-gold hover:text-gold transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href={site.instagram}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="hidden sm:flex w-9 h-9 rounded-full border border-gold/25 items-center justify-center text-gold/80 hover:border-gold hover:text-gold transition-colors"
+            >
+              <Instagram className="w-3.5 h-3.5" />
+            </a>
+            <a
+              href={site.links.session}
+              className="hidden md:inline-flex lookbook-solid items-center justify-center h-9 px-5 text-sm font-semibold tracking-wide transition-colors"
+            >
+              Book Now
+            </a>
+            <button
+              className="lg:hidden text-2xl"
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open Menu"
+            >
+              <Menu className="text-gold" />
+            </button>
+          </div>
         </div>
       </nav>
 
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[60] bg-background flex flex-col p-6 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-[60] bg-ink flex flex-col p-6 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
           <div className="flex justify-between items-center mb-12">
             <a href="/" onClick={closeMenu} aria-label={site.name}>
-              <Logo variant="dark" size="md" />
+              <Logo variant="light" size="md" />
             </a>
             <button onClick={closeMenu} aria-label="Close menu">
-              <X className="text-foreground h-8 w-8" />
+              <X className="text-gold h-8 w-8" />
             </button>
           </div>
           <div className="flex flex-col gap-6 items-center justify-center flex-1">
@@ -108,16 +115,18 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={closeMenu}
-                className="text-3xl font-display font-medium text-foreground"
+                className="text-3xl font-display font-medium text-gold"
               >
                 {link.label}
               </a>
             ))}
-            <Button asChild size="lg" className="mt-8 bg-primary text-primary-foreground w-full max-w-[200px]">
-              <a href={site.links.session} onClick={closeMenu}>
-                Book Now
-              </a>
-            </Button>
+            <a
+              href={site.links.session}
+              onClick={closeMenu}
+              className="mt-8 lookbook-solid inline-flex items-center justify-center h-12 px-8 w-full max-w-[200px] text-sm font-semibold tracking-wide transition-colors"
+            >
+              Book Now
+            </a>
           </div>
         </div>
       )}

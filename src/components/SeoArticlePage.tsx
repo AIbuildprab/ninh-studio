@@ -2,8 +2,10 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { JsonLd } from "@/components/JsonLd";
-import { SectionEyebrow } from "@/components/SectionEyebrow";
+import { LookbookTiles } from "@/components/LookbookTiles";
+import { BookingBanner } from "@/components/sections/BookingBanner";
 import type { ContentBlock, SeoArticle } from "@/lib/content";
+import { areas, services } from "@/lib/catalog";
 import { breadcrumbJsonLd, faqJsonLd, serviceJsonLd } from "@/lib/schema";
 import { site } from "@/lib/site";
 
@@ -127,13 +129,18 @@ export function SeoArticlePage({
     extraSchema ?? null,
   ].filter(Boolean);
 
+  const isServicesHub = article.kind === "hub" && article.slug === "services";
+  const isAreasHub = article.kind === "hub" && article.slug === "areas-we-serve";
+  const relatedServices = article.offerServices?.filter((item) => item.href !== "/services") ?? [];
+  const relatedAreas = article.serveAreas ?? [];
+
   return (
     <>
       {schema.map((item, i) => (
         <JsonLd key={i} data={item} />
       ))}
-      <article className="pb-20">
-        <header className="relative overflow-hidden bg-ink text-primary-foreground">
+      <article>
+        <header className="relative min-h-[72vh] overflow-hidden bg-ink text-primary-foreground flex items-end">
           <div className="absolute inset-0">
             <PlaceholderImage
               src={article.image.src}
@@ -142,53 +149,67 @@ export function SeoArticlePage({
               priority
               sizes="100vw"
               objectPosition={article.image.objectPosition}
-              className="object-cover opacity-50"
+              className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30" />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/45" />
           </div>
-          <div className="relative max-w-[860px] mx-auto px-6 pt-28 pb-20">
-            <SectionEyebrow className="text-gold-muted mb-4">{article.eyebrow}</SectionEyebrow>
-            <h1 className="font-display font-medium text-4xl md:text-6xl leading-tight text-white mb-4">
+          <div className="relative w-full max-w-[1180px] mx-auto px-6 pt-28 pb-14 md:pb-20 md:pl-16">
+            <nav className="flex flex-wrap gap-x-2 gap-y-1 text-[11px] uppercase tracking-[0.16em] text-gold/55 mb-6">
+              {article.breadcrumbs.map((crumb, i) => (
+                <span key={crumb.path} className="flex items-center gap-2">
+                  {i > 0 ? <span aria-hidden>/</span> : null}
+                  <Link href={crumb.path} className="hover:text-gold transition-colors">
+                    {crumb.name}
+                  </Link>
+                </span>
+              ))}
+            </nav>
+            <p className="uppercase tracking-[0.36em] text-gold-muted font-medium text-[10px] md:text-[11px] mb-4">
+              {article.eyebrow}
+            </p>
+            <h1 className="font-display font-medium text-4xl md:text-6xl leading-[1.08] text-white mb-4 max-w-3xl">
               {article.h1}
             </h1>
-            <p className="text-white/75 max-w-2xl text-lg">{article.description}</p>
+            <p className="text-white/75 max-w-xl text-base md:text-lg mb-8">{article.description}</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href={site.links.session}
+                className="lookbook-solid inline-flex items-center justify-center min-w-[160px] h-12 px-8 text-sm font-semibold tracking-wide transition-colors"
+              >
+                Book a Session
+              </Link>
+              <Link
+                href="/#pricing"
+                className="lookbook-ghost inline-flex items-center justify-center min-w-[160px] h-12 px-8 text-sm font-semibold tracking-wide transition-colors"
+              >
+                Pricing
+              </Link>
+            </div>
           </div>
         </header>
 
-        <div className="max-w-[760px] mx-auto px-6 pt-12">
+        {isServicesHub ? (
+          <LookbookTiles
+            eyebrow="Sessions"
+            title="Explore the work"
+            items={services.map((s) => ({ label: s.name, href: s.path }))}
+          />
+        ) : null}
+
+        {isAreasHub ? (
+          <LookbookTiles
+            variant="names"
+            eyebrow="Areas"
+            title="Neighbourhoods that come to Joyce Street"
+            items={areas.map((a) => ({ label: a.name, href: a.path }))}
+          />
+        ) : null}
+
+        <div className="max-w-[760px] mx-auto px-6 pt-12 pb-8">
           {article.body.map((block, i) => (
             <Block key={i} block={block} />
           ))}
-
-          {article.offerServices?.length ? (
-            <section className="mt-12 rounded-sm border border-border bg-card p-6">
-              <h2 className="font-display text-2xl mb-4">Services we offer here</h2>
-              <ul className="space-y-2">
-                {article.offerServices.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className="text-accent hover:underline">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-
-          {article.serveAreas?.length ? (
-            <section className="mt-8 rounded-sm border border-border bg-card p-6">
-              <h2 className="font-display text-2xl mb-4">We also serve these areas</h2>
-              <ul className="space-y-2">
-                {article.serveAreas.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href} className="text-accent hover:underline">
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
 
           <section className="mt-14">
             <h2 className="font-display font-medium text-3xl md:text-4xl text-foreground mb-6">
@@ -204,24 +225,6 @@ export function SeoArticlePage({
             </dl>
           </section>
 
-          <section className="mt-14 border-t border-border pt-10">
-            <h2 className="font-display text-3xl mb-3">Come see the studio</h2>
-            <p className="text-secondary-foreground mb-6 leading-relaxed">
-              Ninh Studio is at {site.address.line1}, {site.address.city}, {site.address.region}{" "}
-              {site.address.postal}. Call{" "}
-              <a href={site.phoneHref} className="text-accent hover:underline">
-                {site.phoneDisplay}
-              </a>{" "}
-              or send a note and we’ll find a time that isn’t rushed.
-            </p>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-3 rounded-md font-semibold hover:bg-primary/90"
-            >
-              Book a session
-            </Link>
-          </section>
-
           {article.kind === "area" || article.slug === "areas-we-serve" ? (
             <section className="mt-14">
               <h2 className="font-display text-3xl mb-3">Find us on the map</h2>
@@ -229,7 +232,7 @@ export function SeoArticlePage({
                 One studio: {site.address.line1}, {site.address.city}. About a 650 m walk from
                 Joyce-Collingwood Station.
               </p>
-              <div className="h-[320px] rounded-xl overflow-hidden shadow-md mb-4">
+              <div className="h-[320px] overflow-hidden shadow-md mb-4">
                 <iframe
                   src={site.mapsEmbedUrl}
                   className="w-full h-full border-0"
@@ -250,6 +253,21 @@ export function SeoArticlePage({
             </section>
           ) : null}
         </div>
+
+        {!isServicesHub && relatedServices.length ? (
+          <LookbookTiles eyebrow="Services" title="What we offer here" items={relatedServices} />
+        ) : null}
+
+        {!isAreasHub && relatedAreas.length ? (
+          <LookbookTiles
+            variant="names"
+            eyebrow="Areas"
+            title="Neighbourhoods we serve"
+            items={relatedAreas}
+          />
+        ) : null}
+
+        <BookingBanner />
       </article>
     </>
   );

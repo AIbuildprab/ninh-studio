@@ -12,16 +12,16 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="py-12 pb-28 bg-background w-full overflow-hidden scroll-mt-24 lg:scroll-mt-28 md:box-border md:flex md:h-dvh md:max-h-dvh md:flex-col md:py-0 md:pt-20 md:pb-8"
+      className="py-16 md:py-24 bg-background w-full overflow-hidden scroll-mt-24"
       ref={ref}
     >
-      <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-6 md:h-full md:min-h-0 md:flex-1 md:grid-cols-2 md:items-stretch md:gap-10">
+      <div className="max-w-[1180px] mx-auto px-6 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center md:gap-12">
         <div
-          className={`order-2 md:order-1 md:h-full md:min-h-0 reveal-blur transition-all duration-700 ${
+          className={`order-2 md:order-1 reveal-blur transition-all duration-700 ${
             isIntersecting ? "visible-state" : "hidden-state"
           }`}
         >
-          <div className="relative aspect-[4/3] w-full rounded-sm overflow-hidden shadow-md md:aspect-auto md:h-full md:min-h-0">
+          <div className="relative aspect-[4/5] w-full overflow-hidden shadow-md">
             <PlaceholderImage
               src={site.aboutImage.src}
               alt={site.aboutImage.alt}
@@ -30,7 +30,7 @@ export function AboutSection() {
               objectPosition={site.aboutImage.objectPosition}
               className="object-cover"
             />
-            <div className="absolute inset-0 border border-black/5 rounded-sm pointer-events-none" />
+            <div className="absolute inset-0 border border-black/5 pointer-events-none" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/50 to-transparent px-4 pb-3.5 pt-12 pointer-events-none">
               <p className="font-display italic font-medium text-2xl leading-none text-white mb-1.5">
                 {site.owner}
@@ -42,7 +42,7 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="contents md:order-2 md:flex md:h-full md:min-h-0 md:flex-col md:justify-center">
+        <div className="contents md:order-2 md:block">
           <div
             className={`order-1 reveal-blur transition-all duration-700 delay-200 ${
               isIntersecting ? "visible-state" : "hidden-state"

@@ -31,7 +31,7 @@ export function SocialProofBar() {
   return (
     <section
       ref={ref}
-      className={`w-full bg-ink text-primary-foreground py-12 transition-all duration-700 transform ${
+      className={`w-full bg-ink text-primary-foreground py-8 md:py-10 border-y border-gold/10 transition-all duration-700 transform ${
         isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >

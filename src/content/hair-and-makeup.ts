@@ -7,12 +7,12 @@ export const hairAndMakeup: SeoArticle = {
   title:
     "Bridal Hair & Makeup Vancouver | Trials & Session Glam at Ninh Studio Joyce",
   description:
-    "Bridal hair and makeup in Vancouver at Ninh Studio — trials with notes and photos, wedding-day glam, and session makeup on Joyce Street in East Vancouver.",
-  h1: "Hair and makeup in Vancouver — bridal trials and session glam at Joyce Street",
+    "Bridal hair and makeup in Vancouver at Ninh Studio. Trials with notes and photos, wedding-day glam, and session makeup on Joyce Street in East Vancouver.",
+  h1: "Hair and makeup in Vancouver: bridal trials and session glam at Joyce Street",
   eyebrow: "Bridal trials & session glam",
   image: {
     src: site.serviceImages.hmu.src,
-    alt: "Session hair and makeup at the Joyce Street vanity — Ninh Studio, East Vancouver",
+    alt: "Session hair and makeup at the Joyce Street vanity, Ninh Studio, East Vancouver",
     objectPosition: site.serviceImages.hmu.objectPosition,
   },
   breadcrumbs: [
@@ -29,7 +29,11 @@ export const hairAndMakeup: SeoArticle = {
   body: [
     {
       type: "p",
-      text: "Hair and makeup for weddings and photo sessions is one of those details that looks effortless when it works and obvious when it does not. The line is wrong, the base creases before ceremony, the curl falls before photos. Michelle does bridal trials and session glam at Ninh Studio on Joyce Street so the look you approve in the chair is the look that shows up on your wedding morning — documented with notes and reference photos, not memory and hope.",
+      text: "Hair and makeup for weddings and photo sessions is one of those details that looks effortless when it works and obvious when it does not. The line is wrong. The base creases before ceremony. The curl falls before photos.",
+    },
+    {
+      type: "p",
+      text: "Michelle does bridal trials and session glam at Ninh Studio on Joyce Street so the look you approve in the chair is the look that shows up on your wedding morning. Documented with notes and reference photos, not memory and hope.",
     },
     {
       type: "p",
@@ -37,11 +41,11 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "h2",
-      text: "Bridal trials — why they exist",
+      text: "Bridal trials: why they exist",
     },
     {
       type: "p",
-      text: "A bridal trial is a full run of your wedding-day hair and makeup weeks before the date. You bring inspiration — Pinterest boards, screenshots, a photo of a cousin’s wedding, even a lipstick you love — and Michelle translates that into something that fits your face, skin tone, and dress neckline. The trial is not a test you pass; it is a rehearsal where adjustments are expected.",
+      text: "A bridal trial is a full run of your wedding-day hair and makeup weeks before the date. You bring inspiration. Pinterest boards, screenshots, a photo of a cousin’s wedding, even a lipstick you love. Michelle translates that into something that fits your face, skin tone, and dress neckline. The trial is not a test you pass. It is a rehearsal where adjustments are expected.",
     },
     {
       type: "p",
@@ -61,11 +65,11 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "p",
-      text: "Wedding-day appointments happen at the studio or on location depending on your timeline. Many parties start at Joyce Street because the room holds bridesmaids, partners, and parents without hotel hallway foot traffic. Getting ready in the same building where portraits happen cuts driving and parking chaos — especially for guests coming from [Burnaby](/areas-we-serve/burnaby) on the Expo Line or couples training in from downtown.",
+      text: "Wedding-day appointments happen at the studio or on location depending on your timeline. Many parties start at Joyce Street because the room holds bridesmaids, partners, and parents without hotel hallway foot traffic. Getting ready in the same building where portraits happen cuts driving and parking chaos. Especially for guests coming from [Burnaby](/areas-we-serve/burnaby) on the Expo Line or couples training in from downtown.",
     },
     {
       type: "p",
-      text: "Michelle repeats the trial look using the notes and reference photos. Small tweaks still happen — skin reacts differently with stress, weather changes frizz — but the goal is recognition: you look like you on your best day, not like a stranger with heavy contour. Bridesmaids and mothers can be scheduled in sequence; share headcounts early so the morning timeline is realistic.",
+      text: "Michelle repeats the trial look using the notes and reference photos. Small tweaks still happen. Skin reacts differently with stress. Weather changes frizz. The goal is recognition: you look like you on your best day, not like a stranger with heavy contour. Bridesmaids and mothers can be scheduled in sequence. Share headcounts early so the morning timeline is realistic.",
     },
     {
       type: "h2",
@@ -73,7 +77,7 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "p",
-      text: "Not every makeup appointment is bridal. Portrait clients book session glam before headshots and branding photos. [Boudoir photography](/services/boudoir-photography) clients often want makeup that reads soft in natural light and defined under studio lights — Michelle adjusts for both. The same station serves weddings and sessions; only the intensity and longevity change.",
+      text: "Not every makeup appointment is bridal. Portrait clients book session glam before headshots and branding photos. [Boudoir photography](/services/boudoir-photography) clients often want makeup that reads soft in natural light and defined under studio lights. Michelle adjusts for both. The same station serves weddings and sessions. Only the intensity and longevity change.",
     },
     {
       type: "p",
@@ -112,7 +116,7 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "p",
-      text: "Makeup for camera is not identical to makeup for a mirror under bathroom LEDs. Studio light shows texture, shine, and colour shift. Trials at Ninh Studio happen under the same lighting you will likely photograph in — window light plus professional lights — which reduces surprises when the shutter starts. If you are doing bridal portraits the same week as your trial, ask to schedule them back-to-back.",
+      text: "Makeup for camera is not identical to makeup for a mirror under bathroom LEDs. Studio light shows texture, shine, and colour shift. Trials at Ninh Studio happen under the same lighting you will likely photograph in: window light plus professional lights. That reduces surprises when the shutter starts. If you are doing bridal portraits the same week as your trial, ask to schedule them back-to-back.",
     },
     {
       type: "p",
@@ -120,11 +124,11 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "h2",
-      text: "Working with Michelle — what to expect",
+      text: "Working with Michelle: what to expect",
     },
     {
       type: "p",
-      text: "Michelle is direct and calm. She will tell you if an inspiration photo depends on lighting you will not have at an evening reception. She will suggest adjustments for hooded eyes, grey hair, sensitive skin, or a veil that covers half the updo. The studio tone is neighborly, not runway — you should feel like yourself, polished.",
+      text: "Michelle is direct and calm. She will tell you if an inspiration photo depends on lighting you will not have at an evening reception. She will suggest adjustments for hooded eyes, grey hair, sensitive skin, or a veil that covers half the updo. The studio tone is neighbourly, not runway. You should feel like yourself, polished.",
     },
     {
       type: "ol",
@@ -134,7 +138,7 @@ export const hairAndMakeup: SeoArticle = {
         "Disclose allergies, pregnancy, or skin conditions when inquiring",
         "Plan wedding-day arrival times for each person getting services",
         "Ask about travel if glam must happen at a venue instead of Joyce Street",
-        "Schedule photos after makeup sets — not while lashes are still drying",
+        "Schedule photos after makeup sets, not while lashes are still drying",
       ],
     },
     {
@@ -143,11 +147,11 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "p",
-      text: "Ninh Studio is at 5530 Joyce Street, Vancouver, BC V5R 4H6 — about 650 metres from Joyce-Collingwood SkyTrain. Two free on-site parking spots and street parking nearby make morning-of logistics easier than downtown hotel loading zones. Hours are Tuesday through Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed. Appointments only.",
+      text: "Ninh Studio is at 5530 Joyce Street, Vancouver, BC V5R 4H6, about 650 metres from Joyce-Collingwood SkyTrain. Two free on-site parking spots and street parking nearby make morning-of logistics easier than downtown hotel loading zones. Hours are Tuesday through Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed. Appointments only.",
     },
     {
       type: "p",
-      text: "Clients from East Vancouver often walk or drive a short hop. Clients from Burnaby, New Westminster, and downtown frequently take the Expo Line. If your wedding party is large, tell us when you inquire so we can discuss flow — who sits first, how many mirrors are needed, whether some services happen off-site.",
+      text: "Clients from East Vancouver often walk or drive a short hop. Clients from Burnaby, New Westminster, and downtown frequently take the Expo Line. If your wedding party is large, tell us when you inquire so we can discuss flow. Who sits first. How many mirrors are needed. Whether some services happen off-site.",
     },
     {
       type: "h2",
@@ -155,7 +159,7 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "p",
-      text: "Hair and makeup is quoted based on services, headcount, and travel — not the studio rental hourly rate. Bridal trials, wedding-day glam, bridesmaid styling, and session makeup are different line items. Email hello@ninhstudio.ca or call (778) 908-4160 with your date, location, and party size. Popular wedding dates book early; trials should happen with enough lead time to adjust if you change dress or hair length.",
+      text: "Hair and makeup is quoted based on services, headcount, and travel, not the studio rental hourly rate. Bridal trials, wedding-day glam, bridesmaid styling, and session makeup are different line items. Email hello@ninhstudio.ca or call (778) 908-4160 with your date, location, and party size. Popular wedding dates book early. Trials should happen with enough lead time to adjust if you change dress or hair length.",
     },
     {
       type: "ul",
@@ -164,7 +168,7 @@ export const hairAndMakeup: SeoArticle = {
         "Session glam available for portraits, boudoir, and branding shoots",
         "Makeup station, ring light, and mirrors included in studio appointments",
         "Can combine with [wedding photography](/services/wedding-photography) or portraits at Joyce Street",
-        "Up to 20 people capacity — smaller groups recommended for calm getting-ready",
+        "Up to 20 people capacity. Smaller groups recommended for calm getting-ready",
       ],
     },
     {
@@ -173,11 +177,11 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "p",
-      text: "You do not need to hire Ninh Studio as your photographer to book Michelle for makeup. Many clients arrive with their own photographer or no photos at all — just a trial and wedding-day glam. If you only need the room for your stylist team, that is studio rental territory; if you need Michelle in the chair, book hair and makeup directly.",
+      text: "You do not need to hire Ninh Studio as your photographer to book Michelle for makeup. Many clients arrive with their own photographer or no photos at all. Just a trial and wedding-day glam. If you only need the room for your stylist team, that is studio rental territory. If you need Michelle in the chair, book hair and makeup directly.",
     },
     {
       type: "p",
-      text: "Good hair and makeup should make you feel like you on a day when everything else is loud. Trials, notes, and honest conversation are how we get there — without guessing on the morning that matters most.",
+      text: "Good hair and makeup should make you feel like you on a day when everything else is loud. Trials, notes, and a clear conversation are how we get there, without guessing on the morning that matters most.",
     },
   ],
   faqs: [
@@ -191,13 +195,13 @@ export const hairAndMakeup: SeoArticle = {
       id: "hmu-trial-when",
       question: "How far before the wedding should the trial happen?",
       answer:
-        "Weeks ahead is ideal — enough time to tweak colour or hair length if you change plans. Very last-minute trials may have limited availability.",
+        "Weeks ahead is ideal. Enough time to tweak colour or hair length if you change plans. Very last-minute trials may have limited availability.",
     },
     {
       id: "hmu-wedding-location",
       question: "Do you travel for wedding-day hair and makeup?",
       answer:
-        "Many parties start at the Joyce Street studio. Travel to venues can be arranged — share locations when you inquire so quotes include travel time.",
+        "Many parties start at the Joyce Street studio. Travel to venues can be arranged. Share locations when you inquire so quotes include travel time.",
     },
     {
       id: "hmu-session",
@@ -221,7 +225,7 @@ export const hairAndMakeup: SeoArticle = {
       id: "hmu-own-makeup",
       question: "I do my own base makeup. Can you do eyes and hair only?",
       answer:
-        "Yes — tell us what you want covered. We adjust timing and pricing based on services, not a one-size package.",
+        "Yes. Tell us what you want covered. We adjust timing and pricing based on services, not a one-size package.",
     },
     {
       id: "hmu-book",

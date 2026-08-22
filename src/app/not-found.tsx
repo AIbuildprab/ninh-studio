@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Page not found | Ninh Studio",
@@ -10,21 +11,30 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-background px-6">
+    <div className="min-h-screen w-full flex items-center justify-center bg-ink px-6">
       <div className="text-center max-w-md">
-        <div className="mb-8">
-          <Logo variant="dark" size="lg" />
+        <div className="mb-8 flex justify-center">
+          <Logo variant="light" size="lg" />
         </div>
-        <h1 className="font-display font-medium text-4xl text-foreground mb-3">Page not found</h1>
-        <p className="text-secondary-foreground mb-8">
+        <p className="uppercase tracking-[0.36em] text-gold-muted text-[10px] mb-4">404</p>
+        <h1 className="font-display font-medium text-4xl text-white mb-3">Page not found</h1>
+        <p className="text-gold-muted/75 mb-8">
           That page doesn’t exist. Head back to the studio homepage.
         </p>
-        <Link
-          href="/"
-          className="inline-flex items-center justify-center bg-primary text-primary-foreground px-8 py-3 rounded-md font-semibold hover:bg-primary/90 transition-colors"
-        >
-          Back to home
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <Link
+            href="/"
+            className="lookbook-solid inline-flex items-center justify-center min-w-[160px] h-12 px-8 text-sm font-semibold tracking-wide transition-colors"
+          >
+            Back to home
+          </Link>
+          <Link
+            href={site.links.session}
+            className="lookbook-ghost inline-flex items-center justify-center min-w-[160px] h-12 px-8 text-sm font-semibold tracking-wide transition-colors"
+          >
+            Book a session
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { Button } from "@/components/ui/button";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
 import { site, type SiteImage } from "@/lib/site";
@@ -13,13 +12,13 @@ const clientWork = [...site.galleryItems];
 const studioShots = [...site.studioItems];
 
 const row1: SiteImage[] = [
-  clientWork[0], clientWork[1], clientWork[2], studioShots[0], clientWork[3], clientWork[4],
+  clientWork[0], clientWork[1], clientWork[2], studioShots[0], clientWork[3], clientWork[4], clientWork[12],
 ];
 const row2: SiteImage[] = [
-  clientWork[5], clientWork[6], studioShots[1], clientWork[7], studioShots[2], clientWork[8],
+  clientWork[5], clientWork[6], studioShots[1], clientWork[7], studioShots[2], clientWork[8], clientWork[13],
 ];
 const row3: SiteImage[] = [
-  studioShots[3], clientWork[2], studioShots[4], clientWork[1], clientWork[5], studioShots[5],
+  studioShots[3], clientWork[9], studioShots[4], clientWork[10], clientWork[11], studioShots[6], clientWork[14],
 ];
 
 function MarqueeRow({
@@ -124,7 +123,7 @@ export function GallerySection() {
           isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <SectionEyebrow className="text-center">Portfolio</SectionEyebrow>
+        <SectionEyebrow className="text-center">Gallery</SectionEyebrow>
         <h2 className="font-display font-medium text-4xl md:text-5xl text-foreground mb-4">
           Sessions &amp; the studio.
         </h2>
@@ -154,11 +153,14 @@ export function GallerySection() {
           isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <Button asChild variant="outline" className="border-foreground/20 text-foreground hover:bg-primary hover:text-primary-foreground">
-          <a href={site.instagram} target="_blank" rel="noreferrer">
-            See more on Instagram
-          </a>
-        </Button>
+        <a
+          href={site.instagram}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center justify-center h-11 px-7 text-sm font-semibold tracking-wide border border-foreground/20 text-foreground hover:bg-ink hover:text-gold transition-colors"
+        >
+          See more on Instagram
+        </a>
       </div>
     </section>
   );
