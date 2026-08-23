@@ -142,7 +142,7 @@ export function Footer() {
 
                 <li>
 
-                  <a href="/#gallery" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
+                  <a href="/gallery" className="text-gold-muted/50 hover:text-gold transition-colors text-sm">
 
                     Gallery
 

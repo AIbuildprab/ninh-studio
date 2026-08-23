@@ -1,6 +1,6 @@
 import { areas, services } from "@/lib/catalog";
 import { homepageFaqs, type FaqItem } from "@/lib/faq";
-import { site } from "@/lib/site";
+import { galleryPageImages, site } from "@/lib/site";
 
 const origin = "https://ninhstudio.ca";
 
@@ -120,6 +120,24 @@ export function serviceJsonLd(name: string, path: string, description: string) {
       },
     },
     areaServed: areas.map((area) => area.name),
+  };
+}
+
+export function galleryPageJsonLd() {
+  const media = galleryPageImages().map((img) => ({
+    "@type": "ImageObject",
+    contentUrl: `${origin}${img.src}`,
+    name: img.alt,
+  }));
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    name: "Ninh Studio Gallery",
+    url: `${origin}/gallery`,
+    description:
+      "Portrait, wedding, and studio photography from Ninh Studio on Joyce Street in East Vancouver.",
+    associatedMedia: media,
   };
 }
 

@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: origin, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${origin}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${origin}/gallery`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${origin}/areas-we-serve`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     ...Object.values(serviceArticles).map((article) => ({
       url: `${origin}/services/${article.slug}`,

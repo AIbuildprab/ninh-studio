@@ -39,7 +39,7 @@ export function FeaturedCollection() {
             Portraits in natural light — one of the looks we shoot on Joyce Street.
           </p>
           <a
-            href="/#gallery"
+            href="/gallery"
             className="lookbook-ghost inline-flex items-center justify-center min-w-[200px] h-12 px-8 text-sm font-semibold tracking-[0.14em] uppercase transition-colors"
           >
             Explore the gallery

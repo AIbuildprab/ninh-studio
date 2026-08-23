@@ -323,7 +323,7 @@ export const site = {
     { label: "Sessions", href: "/services" },
     { label: "Studio", href: "/#studio" },
     { label: "Areas", href: "/areas-we-serve" },
-    { label: "Gallery", href: "/#gallery" },
+    { label: "Gallery", href: "/gallery" },
     { label: "Pricing", href: "/#pricing" },
     { label: "Contact", href: "/#contact" },
   ],
@@ -333,6 +333,20 @@ export const site = {
     rental: "https://www.tagvenue.com/ca/rooms/vancouver/75697/ninh-studio/photo-studio",
   },
 } as const;
+
+/** Same-file studio shots listed under different paths — keep off /gallery. */
+const galleryPageDuplicateSrcs = new Set<string>([
+  "/images/space-3.avif",
+  "/images/widen-1680-noupsize.avif",
+  "/images/widen-1680-noupsize (1).avif",
+  "/images/widen-1680-noupsize (2).avif",
+]);
+
+export function galleryPageImages(): SiteImage[] {
+  return [...site.galleryItems, ...site.studioItems].filter(
+    (img) => !galleryPageDuplicateSrcs.has(img.src)
+  );
+}
 
 export type SessionType = (typeof site.sessionTypes)[number];
 

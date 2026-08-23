@@ -15,13 +15,11 @@ const GOLD = "#B3A38B";
 const GOLD_PALE = "#E2D8C6";
 const SEAL = "#9E2A2B";
 const MUTED = "#616161";
-
-function siteUrl() {
-  return (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ninhstudio.ca").replace(/\/$/, "");
-}
+const SERIF = "Georgia,'Times New Roman',serif";
+const SANS = "'Segoe UI',Roboto,Helvetica,Arial,sans-serif";
 
 function logoUrl() {
-  return `${siteUrl()}${site.images.logo}`;
+  return `${site.origin}${site.images.logo}`;
 }
 
 export function escapeHtml(value: string) {
@@ -37,17 +35,33 @@ function fieldRow(label: string, value: string, last = false) {
   const border = last ? "none" : `1px solid ${GOLD_PALE}`;
   return `
     <tr>
-      <td style="padding:14px 0;border-bottom:${border};vertical-align:top;width:140px;">
-        <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:${GOLD};">${escapeHtml(label)}</p>
+      <td style="padding:10px 0;border-bottom:${border};vertical-align:top;width:132px;">
+        <p style="margin:0;font-family:${SERIF};font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:${GOLD};">${escapeHtml(label)}</p>
       </td>
-      <td style="padding:14px 0;border-bottom:${border};vertical-align:top;">
-        <p style="margin:0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:${INK};">${value}</p>
+      <td style="padding:10px 0;border-bottom:${border};vertical-align:top;">
+        <p style="margin:0;font-family:${SANS};font-size:15px;line-height:1.5;color:${INK};">${value}</p>
       </td>
     </tr>`;
 }
 
-function emailShell(options: { eyebrow: string; intro: string; bodyRows: string }) {
-  const { eyebrow, intro, bodyRows } = options;
+function ctaButton(href: string, label: string) {
+  return `
+    <table role="presentation" cellpadding="0" cellspacing="0" style="margin:8px 0 4px;">
+      <tr>
+        <td style="border:1px solid ${GOLD};">
+          <a href="${escapeHtml(href)}" style="display:inline-block;padding:12px 22px;font-family:${SANS};font-size:12px;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;color:${INK};">${escapeHtml(label)}</a>
+        </td>
+      </tr>
+    </table>`;
+}
+
+function emailShell(options: {
+  eyebrow: string;
+  intro: string;
+  bodyRows: string;
+  cta?: { href: string; label: string };
+}) {
+  const { eyebrow, intro, bodyRows, cta } = options;
   const address = formatAddress();
 
   return `<!DOCTYPE html>
@@ -58,20 +72,29 @@ function emailShell(options: { eyebrow: string; intro: string; bodyRows: string 
     <title>Ninh Studio</title>
   </head>
   <body style="margin:0;padding:0;background-color:${IVORY};">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:${IVORY};padding:32px 16px;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:${IVORY};padding:28px 12px;">
       <tr>
         <td align="center">
           <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#ffffff;border:1px solid ${GOLD_PALE};">
             <tr>
-              <td style="background-color:${INK};padding:28px 36px 24px;">
+              <td style="background-color:${INK};padding:26px 32px 22px;">
                 <table role="presentation" cellpadding="0" cellspacing="0">
                   <tr>
-                    <td style="vertical-align:middle;padding-right:14px;">
+                    <td style="vertical-align:middle;padding-right:16px;">
                       <img src="${escapeHtml(logoUrl())}" alt="Ninh Studio" width="56" height="56" style="display:block;width:56px;height:56px;object-fit:cover;border:1px solid ${GOLD};" />
                     </td>
                     <td style="vertical-align:middle;">
-                      <p style="margin:0;font-family:Georgia,'Times New Roman',serif;font-size:26px;letter-spacing:0.28em;color:${GOLD_PALE};">NINH</p>
-                      <p style="margin:6px 0 0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:0.38em;text-transform:uppercase;color:${GOLD};">Photography Studio</p>
+                      <table role="presentation" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="vertical-align:bottom;padding-right:8px;">
+                            <p style="margin:0;font-family:${SERIF};font-size:26px;letter-spacing:0.26em;line-height:1;color:${GOLD_PALE};">NINH</p>
+                          </td>
+                          <td style="vertical-align:bottom;">
+                            <span style="display:inline-block;width:18px;height:18px;background-color:${SEAL};color:#ffffff;font-family:${SERIF};font-size:11px;line-height:18px;text-align:center;">寧</span>
+                          </td>
+                        </tr>
+                      </table>
+                      <p style="margin:8px 0 0;font-family:${SANS};font-size:10px;letter-spacing:0.38em;text-transform:uppercase;color:${GOLD};">Photography Studio</p>
                     </td>
                   </tr>
                 </table>
@@ -81,30 +104,36 @@ function emailShell(options: { eyebrow: string; intro: string; bodyRows: string 
               <td style="height:3px;background-color:${SEAL};font-size:0;line-height:0;">&nbsp;</td>
             </tr>
             <tr>
-              <td style="padding:36px 36px 12px;">
-                <p style="margin:0 0 10px;display:inline-block;padding:6px 10px;border:1px solid ${GOLD};font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:${GOLD};">${escapeHtml(eyebrow)}</p>
-                <p style="margin:16px 0 0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:${MUTED};">${intro}</p>
+              <td style="padding:28px 32px 8px;">
+                <p style="margin:0 0 12px;display:inline-block;padding:5px 10px;border:1px solid ${GOLD};font-family:${SANS};font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:${GOLD};">${escapeHtml(eyebrow)}</p>
+                <p style="margin:0;font-family:${SANS};font-size:16px;line-height:1.6;color:${MUTED};">${intro}</p>
               </td>
             </tr>
             <tr>
-              <td style="padding:8px 36px 28px;">
+              <td style="padding:16px 32px 8px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                   ${bodyRows}
                 </table>
               </td>
             </tr>
+            ${
+              cta
+                ? `<tr>
+              <td style="padding:16px 32px 8px;">
+                ${ctaButton(cta.href, cta.label)}
+              </td>
+            </tr>`
+                : ""
+            }
             <tr>
-              <td style="padding:0 36px 28px;">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td style="height:1px;background-color:${GOLD_PALE};font-size:0;line-height:0;">&nbsp;</td>
-                  </tr>
-                </table>
-                <p style="margin:18px 0 0;font-family:Georgia,'Times New Roman',serif;font-size:14px;color:${INK};">${escapeHtml(site.name)}</p>
-                <p style="margin:6px 0 0;font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.6;color:${MUTED};">
+              <td style="background-color:${INK};padding:24px 32px;">
+                <p style="margin:0;font-family:${SERIF};font-size:15px;letter-spacing:0.12em;color:${GOLD_PALE};">${escapeHtml(site.name)}</p>
+                <p style="margin:10px 0 0;font-family:${SANS};font-size:13px;line-height:1.65;color:${GOLD};">
                   ${escapeHtml(address)}<br />
-                  ${escapeHtml(site.phoneDisplay)} · <a href="mailto:${escapeHtml(site.email)}" style="color:${GOLD};text-decoration:none;">${escapeHtml(site.email)}</a><br />
-                  <a href="${escapeHtml(site.instagram)}" style="color:${GOLD};text-decoration:none;">${escapeHtml(site.instagramHandle)}</a>
+                  <a href="${escapeHtml(site.phoneHref)}" style="color:${GOLD_PALE};text-decoration:none;">${escapeHtml(site.phoneDisplay)}</a>
+                  &nbsp;·&nbsp;
+                  <a href="mailto:${escapeHtml(site.email)}" style="color:${GOLD_PALE};text-decoration:none;">${escapeHtml(site.email)}</a><br />
+                  <a href="${escapeHtml(site.instagram)}" style="color:${GOLD_PALE};text-decoration:none;">${escapeHtml(site.instagramHandle)}</a>
                 </p>
               </td>
             </tr>
@@ -169,6 +198,7 @@ export function sessionInquiryConfirmationEmail(values: SessionInquiryFields) {
       fieldRow("Preferred date", escapeHtml(preferred)),
       fieldRow("Your message", nl2br(values.message), true),
     ].join(""),
+    cta: { href: site.origin, label: "Visit Ninh Studio" },
   });
 
   const text = [
@@ -180,6 +210,8 @@ export function sessionInquiryConfirmationEmail(values: SessionInquiryFields) {
     `Preferred date: ${preferred}`,
     "",
     values.message,
+    "",
+    site.origin,
     "",
     `${site.name}`,
     formatAddress(),

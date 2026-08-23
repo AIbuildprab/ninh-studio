@@ -1,10 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { X } from "lucide-react";
-import { cn } from "@/lib/utils";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { GalleryLightboxImage } from "@/components/GalleryLightboxImage";
 import { SectionEyebrow } from "@/components/SectionEyebrow";
 import { site, type SiteImage } from "@/lib/site";
 
@@ -49,67 +46,12 @@ function MarqueeRow({
 }
 
 function MarqueeImage({ img }: { img: SiteImage }) {
-  const [lightbox, setLightbox] = useState(false);
-
-  useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(false);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [lightbox]);
-
   return (
-    <>
-      <button
-        type="button"
-        className="relative h-64 md:h-80 w-auto flex-shrink-0 overflow-hidden rounded cursor-pointer group/img"
-        style={{ aspectRatio: "3/4" }}
-        onClick={() => setLightbox(true)}
-        aria-label={`View ${img.alt}`}
-      >
-        <PlaceholderImage
-          src={img.src}
-          alt={img.alt}
-          fill
-          sizes="240px"
-          objectPosition={img.objectPosition}
-          className={cn(
-            "object-cover transition-transform duration-500 group-hover/img:scale-105",
-            img.className
-          )}
-        />
-        <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/15 transition-colors duration-300" />
-      </button>
-
-      {lightbox && (
-        <div
-          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-16 animate-in fade-in duration-200"
-          onClick={() => setLightbox(false)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={img.alt}
-        >
-          <button
-            className="absolute top-6 right-6 text-white/60 hover:text-white transition-colors p-2"
-            onClick={() => setLightbox(false)}
-            aria-label="Close"
-          >
-            <X className="w-7 h-7" />
-          </button>
-          <div className="relative w-full h-full max-w-5xl max-h-full" onClick={(e) => e.stopPropagation()}>
-            <PlaceholderImage
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="90vw"
-              className="object-contain"
-            />
-          </div>
-        </div>
-      )}
-    </>
+    <GalleryLightboxImage
+      img={img}
+      className="h-64 md:h-80 w-auto flex-shrink-0 aspect-[3/4]"
+      sizes="240px"
+    />
   );
 }
 
@@ -133,15 +75,9 @@ export function GallerySection() {
       </div>
 
       <div
-        className={`flex flex-col gap-3 transition-all duration-700 delay-200 ${
+        className={`gallery-marquee-fade flex flex-col gap-3 transition-all duration-700 delay-200 ${
           isIntersecting ? "opacity-100" : "opacity-0"
         }`}
-        style={{
-          maskImage:
-            "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%)",
-        }}
       >
         <MarqueeRow images={row1} direction="left" speed={38} />
         <MarqueeRow images={row2} direction="right" speed={46} />
