@@ -69,7 +69,7 @@ export function Navbar() {
             <a
               href={site.phoneHref}
               aria-label="Call Ninh Studio"
-              className="hidden sm:flex w-9 h-9 rounded-full border border-gold/25 items-center justify-center text-gold/80 hover:border-gold hover:text-gold transition-colors"
+              className="flex w-9 h-9 rounded-full border border-gold/25 items-center justify-center text-gold/80 hover:border-gold hover:text-gold transition-colors"
             >
               <Phone className="w-3.5 h-3.5" />
             </a>
@@ -78,7 +78,7 @@ export function Navbar() {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="hidden sm:flex w-9 h-9 rounded-full border border-gold/25 items-center justify-center text-gold/80 hover:border-gold hover:text-gold transition-colors"
+              className="flex w-9 h-9 rounded-full border border-gold/25 items-center justify-center text-gold/80 hover:border-gold hover:text-gold transition-colors"
             >
               <Instagram className="w-3.5 h-3.5" />
             </a>
