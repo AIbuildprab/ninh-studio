@@ -158,7 +158,7 @@ export const joyceCollingwood: SeoArticle = {
         "If arriving by SkyTrain, allow 10 minutes for the walk from Joyce-Collingwood Station with bags",
         "For driving, mention if you need one of the two on-site parking spots",
         "Share how many people will be in the 597 sq ft room (portraits stay small; groups up to 20 for rental)",
-        "Call (778) 908-4160 or email hello@ninhstudio.ca if your schedule is tight. We would rather answer than guess",
+        "Call (778) 908-4160 or email Ninhmakeupstudio@gmail.com if your schedule is tight. We would rather answer than guess",
       ],
     },
     {
@@ -253,7 +253,7 @@ export const joyceCollingwood: SeoArticle = {
       id: "jc-book",
       question: "How do Joyce-Collingwood clients book?",
       answer:
-        "Email hello@ninhstudio.ca, call (778) 908-4160, or submit the inquiry form on our homepage. Studio rental can also be booked through Tagvenue.",
+        "Email Ninhmakeupstudio@gmail.com, call (778) 908-4160, or submit the inquiry form on our homepage. Studio rental can also be booked through Tagvenue.",
     },
   ],
 };

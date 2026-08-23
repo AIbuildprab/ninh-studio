@@ -161,7 +161,7 @@ export const eventPhotography: SeoArticle = {
     },
     {
       type: "p",
-      text: "Popular weekends fill early. Spring birthdays and holiday parties stack quickly. Weekday corporate events often have more flexibility. Email hello@ninhstudio.ca or call (778) 908-4160 with your date and venue. The [services overview](/services) links every session type if you are also considering portraits or hair and makeup for speakers and hosts before the event.",
+      text: "Popular weekends fill early. Spring birthdays and holiday parties stack quickly. Weekday corporate events often have more flexibility. Email Ninhmakeupstudio@gmail.com or call (778) 908-4160 with your date and venue. The [services overview](/services) links every session type if you are also considering portraits or hair and makeup for speakers and hosts before the event.",
     },
     {
       type: "p",
@@ -223,7 +223,7 @@ export const eventPhotography: SeoArticle = {
       id: "event-book",
       question: "How do we book event photography?",
       answer:
-        "Email hello@ninhstudio.ca or call (778) 908-4160 with date, venue, and hours. Michelle confirms availability. Studio hours Tuesday to Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed.",
+        "Email Ninhmakeupstudio@gmail.com or call (778) 908-4160 with date, venue, and hours. Michelle confirms availability. Studio hours Tuesday to Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed.",
     },
   ],
 };

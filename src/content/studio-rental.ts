@@ -44,7 +44,7 @@ export const studioRental: SeoArticle = {
     },
     {
       type: "p",
-      text: "The layout works for headshots, product tables, small group portraits, interview setups, and content batches where you need the same background for twenty clips. If you are unsure whether your concept fits, email hello@ninhstudio.ca with a rough shot list. Michelle would rather answer clearly than have you discover ceiling height limits mid-shoot.",
+      text: "The layout works for headshots, product tables, small group portraits, interview setups, and content batches where you need the same background for twenty clips. If you are unsure whether your concept fits, email Ninhmakeupstudio@gmail.com with a rough shot list. Michelle would rather answer clearly than have you discover ceiling height limits mid-shoot.",
     },
     {
       type: "h3",
@@ -181,7 +181,7 @@ export const studioRental: SeoArticle = {
       id: "rental-book",
       question: "How do I book the studio?",
       answer:
-        "Book online through Tagvenue or contact hello@ninhstudio.ca for custom scheduling. Appointments only. No drop-ins.",
+        "Book online through Tagvenue or contact Ninhmakeupstudio@gmail.com for custom scheduling. Appointments only. No drop-ins.",
     },
     {
       id: "rental-included",

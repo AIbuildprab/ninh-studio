@@ -194,7 +194,7 @@ export const burnaby: SeoArticle = {
     },
     {
       type: "p",
-      text: "Phone (778) 908-4160, email hello@ninhstudio.ca, or use the contact form. Hours are Tuesday through Saturday 9:30 AM to 5:30 PM and Sunday 10:00 AM to 5:30 PM. Monday closed. Appointments only.",
+      text: "Phone (778) 908-4160, email Ninhmakeupstudio@gmail.com, or use the contact form. Hours are Tuesday through Saturday 9:30 AM to 5:30 PM and Sunday 10:00 AM to 5:30 PM. Monday closed. Appointments only.",
     },
   ],
   faqs: [
@@ -255,7 +255,7 @@ export const burnaby: SeoArticle = {
       id: "by-book",
       question: "How do Burnaby clients book?",
       answer:
-        "Call (778) 908-4160, email hello@ninhstudio.ca, or submit the homepage inquiry form.",
+        "Call (778) 908-4160, email Ninhmakeupstudio@gmail.com, or submit the homepage inquiry form.",
     },
   ],
 };

@@ -181,7 +181,7 @@ export const weddingPhotography: SeoArticle = {
     },
     {
       type: "p",
-      text: "Deliverables are confirmed in writing when you book: number of edited images, online gallery, turnaround. Rush edits for thank-you cards can sometimes be arranged. Ask if that matters to you. Email hello@ninhstudio.ca or call (778) 908-4160 to start.",
+      text: "Deliverables are confirmed in writing when you book: number of edited images, online gallery, turnaround. Rush edits for thank-you cards can sometimes be arranged. Ask if that matters to you. Email Ninhmakeupstudio@gmail.com or call (778) 908-4160 to start.",
     },
     {
       type: "h2",

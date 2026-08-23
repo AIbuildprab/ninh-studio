@@ -193,7 +193,7 @@ export const portraitPhotography: SeoArticle = {
     },
     {
       type: "p",
-      text: "Start with the contact form on the homepage, email hello@ninhstudio.ca, or call (778) 908-4160. Tell us your date range, how many people, and whether you need glam. If you are comparing studios, ask about parking, included lighting, and who directs the session. Those three details change the experience more than a longer gear list.",
+      text: "Start with the contact form on the homepage, email Ninhmakeupstudio@gmail.com, or call (778) 908-4160. Tell us your date range, how many people, and whether you need glam. If you are comparing studios, ask about parking, included lighting, and who directs the session. Those three details change the experience more than a longer gear list.",
     },
     {
       type: "p",

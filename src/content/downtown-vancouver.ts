@@ -161,7 +161,7 @@ export const downtownVancouver: SeoArticle = {
         "Compare SkyTrain total time vs downtown parking fees before you drive",
         "For boudoir, allow unhurried time. Sessions are private and not rushed for the next client",
         "For headshots, bring one or two outfits. Direction is included",
-        "Book via (778) 908-4160 or hello@ninhstudio.ca. Appointments only",
+        "Book via (778) 908-4160 or Ninhmakeupstudio@gmail.com. Appointments only",
       ],
     },
     {
@@ -265,7 +265,7 @@ export const downtownVancouver: SeoArticle = {
       id: "dt-book",
       question: "How do I book from downtown?",
       answer:
-        "Call (778) 908-4160, email hello@ninhstudio.ca, or use the homepage contact form.",
+        "Call (778) 908-4160, email Ninhmakeupstudio@gmail.com, or use the homepage contact form.",
     },
   ],
 };

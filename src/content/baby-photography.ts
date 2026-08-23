@@ -131,7 +131,7 @@ export const babyPhotography: SeoArticle = {
     },
     {
       type: "p",
-      text: "Hours are Tuesday through Saturday 9:30 AM to 5:30 PM and Sunday 10:00 AM to 5:30 PM. Monday is closed. Appointments only. Email hello@ninhstudio.ca or call (778) 908-4160 so Michelle can suggest a time that fits feeding rhythms rather than a generic slot.",
+      text: "Hours are Tuesday through Saturday 9:30 AM to 5:30 PM and Sunday 10:00 AM to 5:30 PM. Monday is closed. Appointments only. Email Ninhmakeupstudio@gmail.com or call (778) 908-4160 so Michelle can suggest a time that fits feeding rhythms rather than a generic slot.",
     },
     {
       type: "h2",

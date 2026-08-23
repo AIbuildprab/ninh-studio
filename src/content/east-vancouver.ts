@@ -166,7 +166,7 @@ export const eastVancouver: SeoArticle = {
         "Allow 10 minutes to walk from Joyce-Collingwood Station if you train in",
         "For baby sessions, build flex time around feeds and naps",
         "For weddings, mention whether you need studio time only or full-day coverage",
-        "Reach us at (778) 908-4160 or hello@ninhstudio.ca. Appointments only, Tuesday to Sunday",
+        "Reach us at (778) 908-4160 or Ninhmakeupstudio@gmail.com. Appointments only, Tuesday to Sunday",
       ],
     },
     {
@@ -257,7 +257,7 @@ export const eastVancouver: SeoArticle = {
       id: "ev-contact",
       question: "How do I book from East Vancouver?",
       answer:
-        "Call (778) 908-4160, email hello@ninhstudio.ca, or use the homepage contact form.",
+        "Call (778) 908-4160, email Ninhmakeupstudio@gmail.com, or use the homepage contact form.",
     },
   ],
 };

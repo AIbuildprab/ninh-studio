@@ -124,7 +124,7 @@ export const commercialPhotography: SeoArticle = {
     },
     {
       type: "p",
-      text: "The studio is about 650 metres from Joyce-Collingwood SkyTrain on the Expo Line. Useful when your team takes transit from downtown or Burnaby. Two free parking spots on site plus street parking nearby suit anyone hauling product boxes or a garment rack. Hours are Tuesday through Saturday 9:30 AM to 5:30 PM and Sunday 10:00 AM to 5:30 PM. Monday is closed. Appointments only. hello@ninhstudio.ca or (778) 908-4160.",
+      text: "The studio is about 650 metres from Joyce-Collingwood SkyTrain on the Expo Line. Useful when your team takes transit from downtown or Burnaby. Two free parking spots on site plus street parking nearby suit anyone hauling product boxes or a garment rack. Hours are Tuesday through Saturday 9:30 AM to 5:30 PM and Sunday 10:00 AM to 5:30 PM. Monday is closed. Appointments only. Ninhmakeupstudio@gmail.com or (778) 908-4160.",
     },
     {
       type: "h2",
@@ -219,7 +219,7 @@ export const commercialPhotography: SeoArticle = {
       id: "commercial-book",
       question: "How do we book a commercial shoot?",
       answer:
-        "Email hello@ninhstudio.ca or call (778) 908-4160 with your brief, dates, and deliverables. Michelle replies with a quote. Tuesday to Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed.",
+        "Email Ninhmakeupstudio@gmail.com or call (778) 908-4160 with your brief, dates, and deliverables. Michelle replies with a quote. Tuesday to Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed.",
     },
   ],
 };

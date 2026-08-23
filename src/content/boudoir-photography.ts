@@ -131,7 +131,7 @@ export const boudoirPhotography: SeoArticle = {
     },
     {
       type: "p",
-      text: "Hours are Tuesday to Saturday 9:30 AM to 5:30 PM and Sunday 10:00 AM to 5:30 PM. Monday is closed. Evening sessions are sometimes available by request. Ask when you book. Contact hello@ninhstudio.ca or (778) 908-4160. If you are comparing options across the city, read the [services overview](/services) and ask any studio how they handle file storage and who else will be in the building. Those answers should be boring and clear.",
+      text: "Hours are Tuesday to Saturday 9:30 AM to 5:30 PM and Sunday 10:00 AM to 5:30 PM. Monday is closed. Evening sessions are sometimes available by request. Ask when you book. Contact Ninhmakeupstudio@gmail.com or (778) 908-4160. If you are comparing options across the city, read the [services overview](/services) and ask any studio how they handle file storage and who else will be in the building. Those answers should be boring and clear.",
     },
     {
       type: "h2",
@@ -222,7 +222,7 @@ export const boudoirPhotography: SeoArticle = {
       id: "boudoir-book",
       question: "How do I book?",
       answer:
-        "Email hello@ninhstudio.ca or call (778) 908-4160 with your date range and comfort level. Michelle replies with availability. Tuesday to Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed.",
+        "Email Ninhmakeupstudio@gmail.com or call (778) 908-4160 with your date range and comfort level. Michelle replies with availability. Tuesday to Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed.",
     },
   ],
 };

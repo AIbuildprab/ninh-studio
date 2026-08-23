@@ -215,7 +215,7 @@ export const areasHub: SeoArticle = {
         "Note whether you need hair & makeup in the same visit as portraits",
         "Say if you are hiring Michelle to photograph or only renting the room",
         "Share your date range. Tuesday to Saturday 9:30 to 5:30, Sunday 10:00 to 5:30, Monday closed",
-        "Call (778) 908-4160 or email hello@ninhstudio.ca if transit or parking is a hard constraint",
+        "Call (778) 908-4160 or email Ninhmakeupstudio@gmail.com if transit or parking is a hard constraint",
       ],
     },
     {
@@ -272,7 +272,7 @@ export const areasHub: SeoArticle = {
       id: "hours-areas",
       question: "What are your hours?",
       answer:
-        "Tuesday to Saturday 9:30 AM to 5:30 PM, Sunday 10:00 AM to 5:30 PM. Monday is closed. Appointments only. Use the contact form, email hello@ninhstudio.ca, or call (778) 908-4160.",
+        "Tuesday to Saturday 9:30 AM to 5:30 PM, Sunday 10:00 AM to 5:30 PM. Monday is closed. Appointments only. Use the contact form, email Ninhmakeupstudio@gmail.com, or call (778) 908-4160.",
     },
     {
       id: "book-areas",

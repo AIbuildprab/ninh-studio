@@ -159,7 +159,7 @@ export const hairAndMakeup: SeoArticle = {
     },
     {
       type: "p",
-      text: "Hair and makeup is quoted based on services, headcount, and travel, not the studio rental hourly rate. Bridal trials, wedding-day glam, bridesmaid styling, and session makeup are different line items. Email hello@ninhstudio.ca or call (778) 908-4160 with your date, location, and party size. Popular wedding dates book early. Trials should happen with enough lead time to adjust if you change dress or hair length.",
+      text: "Hair and makeup is quoted based on services, headcount, and travel, not the studio rental hourly rate. Bridal trials, wedding-day glam, bridesmaid styling, and session makeup are different line items. Email Ninhmakeupstudio@gmail.com or call (778) 908-4160 with your date, location, and party size. Popular wedding dates book early. Trials should happen with enough lead time to adjust if you change dress or hair length.",
     },
     {
       type: "ul",
@@ -231,7 +231,7 @@ export const hairAndMakeup: SeoArticle = {
       id: "hmu-book",
       question: "How do I book a trial or wedding-day glam?",
       answer:
-        "Email hello@ninhstudio.ca, call (778) 908-4160, or use the contact form. Include your wedding date, party size, and whether you need a trial.",
+        "Email Ninhmakeupstudio@gmail.com, call (778) 908-4160, or use the contact form. Include your wedding date, party size, and whether you need a trial.",
     },
   ],
 };

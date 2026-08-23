@@ -47,7 +47,7 @@ export const site = {
   origin: "https://ninhstudio.ca",
   tagline: "Photography Studio · East Vancouver",
   owner: "Michelle",
-  email: "hello@ninhstudio.ca",
+  email: "Ninhmakeupstudio@gmail.com",
   phone: "+1 778-908-4160",
   phoneHref: "tel:+17789084160",
   phoneDisplay: "(778) 908-4160",

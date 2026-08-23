@@ -177,7 +177,7 @@ export const newWestminster: SeoArticle = {
         "For baby sessions, schedule flex time around feeds and naps",
         "For weddings, specify studio portraits vs full-day coverage",
         "If driving, mention whether you need an on-site parking spot",
-        "Contact (778) 908-4160 or hello@ninhstudio.ca. Appointments only",
+        "Contact (778) 908-4160 or Ninhmakeupstudio@gmail.com. Appointments only",
       ],
     },
     {
@@ -276,7 +276,7 @@ export const newWestminster: SeoArticle = {
       id: "nw-book",
       question: "How do New Westminster clients book?",
       answer:
-        "Call (778) 908-4160, email hello@ninhstudio.ca, or submit the homepage inquiry form.",
+        "Call (778) 908-4160, email Ninhmakeupstudio@gmail.com, or submit the homepage inquiry form.",
     },
   ],
 };

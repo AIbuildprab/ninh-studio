@@ -23,10 +23,9 @@ export type ContactResult =
   | { ok: false; error: string; mailto?: string };
 
 const DEFAULT_FROM = "Ninh Studio <hello@ninhstudio.ca>";
-const DEFAULT_TO = "Ninhmakeupstudio@gmail.com";
 
 function inquiryInbox() {
-  return process.env.CONTACT_TO_EMAIL ?? DEFAULT_TO;
+  return process.env.CONTACT_TO_EMAIL ?? site.email;
 }
 
 function buildMailto(values: ContactFormValues) {

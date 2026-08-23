@@ -220,7 +220,7 @@ export const servicesHub: SeoArticle = {
       id: "book",
       question: "How do I book?",
       answer:
-        "Use the contact form on the homepage, email hello@ninhstudio.ca, or call (778) 908-4160. Rentals can also be booked on Tagvenue.",
+        "Use the contact form on the homepage, email Ninhmakeupstudio@gmail.com, or call (778) 908-4160. Rentals can also be booked on Tagvenue.",
     },
   ],
 };
