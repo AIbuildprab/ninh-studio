@@ -26,6 +26,20 @@ const photos = {
   purpleMetallic: "/images/468710330_18285898045212876_1419320731200097181_n.jpg",
   sunglasses: "/images/657455525_18075080894433504_4932882462293649224_n.jpg",
   plaidStool: "/images/653394023_18097152745812800_1837796904943014885_n.jpg",
+  lanternQipao: "/images/lantern-qipao.jpg",
+  pinkSlipRoses: "/images/pink-slip-roses.jpg",
+  raspberryPortrait: "/images/raspberry-portrait.jpg",
+  bwFoldingChair: "/images/bw-folding-chair.jpg",
+  crescentDisco: "/images/crescent-disco.jpg",
+  blackDressGerbera: "/images/black-dress-gerbera.jpg",
+  galaxyFlowerCrown: "/images/galaxy-flower-crown.jpg",
+  goldenOpenBack: "/images/golden-open-back.jpg",
+  sunsetHorse: "/images/sunset-horse.jpg",
+  starPaper: "/images/star-paper.jpg",
+  furTrunkBears: "/images/fur-trunk-bears.jpg",
+  orchidTulle: "/images/orchid-tulle.jpg",
+  toyRackets: "/images/toy-rackets.jpg",
+  blueSequinGown: "/images/blue-sequin-gown.jpg",
 } as const;
 
 export const site = {
@@ -230,6 +244,90 @@ export const site = {
       objectPosition: "55% 20%",
       className: "photo-card",
     },
+    {
+      src: photos.lanternQipao,
+      alt: "Lunar New Year portrait with lantern — Ninh Studio",
+      objectPosition: "50% 22%",
+      className: "photo-warm",
+    },
+    {
+      src: photos.pinkSlipRoses,
+      alt: "Fashion portrait with roses — Ninh Studio",
+      objectPosition: "50% 18%",
+      className: "photo-soft",
+    },
+    {
+      src: photos.raspberryPortrait,
+      alt: "Playful lifestyle portrait — Ninh Studio",
+      objectPosition: "50% 20%",
+      className: "photo-warm",
+    },
+    {
+      src: photos.bwFoldingChair,
+      alt: "Black and white editorial portrait — Ninh Studio",
+      objectPosition: "50% 18%",
+      className: "photo-card",
+    },
+    {
+      src: photos.crescentDisco,
+      alt: "Editorial portrait with crescent light — Ninh Studio",
+      objectPosition: "50% 22%",
+      className: "photo-card",
+    },
+    {
+      src: photos.blackDressGerbera,
+      alt: "Studio fashion portrait with gerbera — Ninh Studio",
+      objectPosition: "50% 20%",
+      className: "photo-soft",
+    },
+    {
+      src: photos.galaxyFlowerCrown,
+      alt: "Fantasy floral portrait — Ninh Studio",
+      objectPosition: "50% 18%",
+      className: "photo-soft",
+    },
+    {
+      src: photos.goldenOpenBack,
+      alt: "Romantic editorial gown portrait — Ninh Studio",
+      objectPosition: "50% 20%",
+      className: "photo-warm",
+    },
+    {
+      src: photos.sunsetHorse,
+      alt: "Golden hour horseback portrait — Ninh Studio",
+      objectPosition: "50% 30%",
+      className: "photo-warm",
+    },
+    {
+      src: photos.starPaper,
+      alt: "Studio branding portrait — Ninh Studio",
+      objectPosition: "50% 18%",
+      className: "photo-warm",
+    },
+    {
+      src: photos.furTrunkBears,
+      alt: "Editorial fashion portrait with fur — Ninh Studio",
+      objectPosition: "50% 22%",
+      className: "photo-soft",
+    },
+    {
+      src: photos.orchidTulle,
+      alt: "Orchid studio portrait — Ninh Studio",
+      objectPosition: "50% 18%",
+      className: "photo-soft",
+    },
+    {
+      src: photos.toyRackets,
+      alt: "Playful studio portrait with props — Ninh Studio",
+      objectPosition: "50% 20%",
+      className: "photo-card",
+    },
+    {
+      src: photos.blueSequinGown,
+      alt: "Evening gown studio portrait — Ninh Studio",
+      objectPosition: "50% 25%",
+      className: "photo-soft",
+    },
   ] as const satisfies readonly SiteImage[],
   studioItems: [
     { src: "/images/space-1.avif", alt: "Studio interior on Joyce Street" },
@@ -343,9 +441,12 @@ const galleryPageDuplicateSrcs = new Set<string>([
 ]);
 
 export function galleryPageImages(): SiteImage[] {
-  return [...site.galleryItems, ...site.studioItems].filter(
-    (img) => !galleryPageDuplicateSrcs.has(img.src)
-  );
+  const seen = new Set<string>(galleryPageDuplicateSrcs);
+  return [...site.galleryItems, ...site.studioItems].filter((img) => {
+    if (seen.has(img.src)) return false;
+    seen.add(img.src);
+    return true;
+  });
 }
 
 export type SessionType = (typeof site.sessionTypes)[number];
