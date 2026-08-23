@@ -23,9 +23,14 @@ export type ContactResult =
   | { ok: false; error: string; mailto?: string };
 
 const DEFAULT_FROM = "Ninh Studio <hello@ninhstudio.ca>";
+const DEFAULT_TO = "Ninhmakeupstudio@gmail.com";
+
+function inquiryInbox() {
+  return process.env.CONTACT_TO_EMAIL ?? DEFAULT_TO;
+}
 
 function buildMailto(values: ContactFormValues) {
-  const to = process.env.CONTACT_TO_EMAIL ?? site.email;
+  const to = inquiryInbox();
   const subject = `Session inquiry: ${values.sessionType} — ${values.name}`;
   const body = [
     `Name: ${values.name}`,
@@ -80,7 +85,7 @@ export async function submitSessionInquiry(
   }
 
   const values = parsed.data;
-  const to = process.env.CONTACT_TO_EMAIL ?? site.email;
+  const to = inquiryInbox();
   const from = process.env.RESEND_FROM_EMAIL ?? DEFAULT_FROM;
   const apiKey = process.env.RESEND_API_KEY;
 
