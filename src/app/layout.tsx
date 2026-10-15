@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/components/providers";
 import { site } from "@/lib/site";
 import { pageMetadata, siteOrigin } from "@/lib/seo";
@@ -81,6 +82,7 @@ export default function RootLayout({
     <html lang="en" className={`${dmSans.variable} ${cormorant.variable}`}>
       <body>
         <Providers>{children}</Providers>
+        <Analytics />
       </body>
     </html>
   );
